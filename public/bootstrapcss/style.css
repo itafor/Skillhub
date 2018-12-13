@@ -1,0 +1,281 @@
+html, body {
+  background: #f4f4f4;
+  height: 100%;
+}
+/*navbar*/
+.navbar {
+min-height: 33px !important;
+margin-bottom: 0px;
+border-radius: 0px;
+}
+
+.navbar-nav > li > a, .navbar-brand{ 
+padding-top: 6px !important;
+padding-bottom: 0 !important;
+height: 33px;
+ }
+
+
+ .navbar {
+  background-color: #e74c3c;
+}
+.navbar .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #ffbbbc;
+}
+.navbar .navbar-text {
+  color: #ecf0f1;
+}
+.navbar .navbar-text a {
+  color: #ffbbbc;
+}
+.navbar .navbar-text a:hover,
+.navbar .navbar-text a:focus {
+  color: #ffbbbc; 
+}
+.navbar .navbar-nav .nav-link {
+  color: #ecf0f1;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #ffbbbc;
+}
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #ffbbbc;
+  background-color: #c0392b;
+}
+.navbar .navbar-toggle {
+  border-color: #c0392b;
+}
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #c0392b;
+}
+.navbar .navbar-toggle .navbar-toggler-icon {
+  color: #ecf0f1;
+}
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar .navbar-link {
+  color: #ecf0f1;
+}
+.navbar .navbar-link:hover {
+  color: #ffbbbc;
+}
+.navbar button{
+  border-color: #fff;
+  background-color: #ffbbbc;
+  color: #fff;
+}
+/*custome color*/
+.main-color-bg {
+  background-color: #e74c3c !important;
+  border-color: #c0392b !important
+  color: #ffffff !important;
+}
+/*Remove Caret from drodown*/
+.dropdown-toggle:after { content: none }
+/*Header*/
+#header{
+background: #333333;
+color: #ffffff;
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+#header .create{
+padding-top:  20px;
+}
+
+/*breadcrum*/
+.breadcrum{
+	background: #cccccc;
+	color: #ffffff;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+.breadcrum a{
+	color: #333;
+	text-decoration: none;
+}
+/*prgress*/
+.progress-bar{
+	background: #333333;
+	color: #ffffff;
+}
+.dash-box{
+	text-align: center;
+}
+
+.footer{
+	background: #cccccc;
+	color: #ffffff;
+	text-align: center;
+	padding: 40px;
+  height: 30px;
+  position: relative;
+  margin-top: 300px; /*negative value of footer height */
+  clear:both;
+  padding-top:20px;
+}
+
+.grid{
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10px 30px 15px 15px;
+  border-radius: 20px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 10px 15px 5px #cbcbcb;
+}
+
+.grid:hover{
+ background: white;
+box-shadow: 10px 15px 5px #b8b8b8;
+}
+.grid .jobseekerPix{
+  width: 100px;
+  height: 100px;
+}
+.grid .leftgrid{
+  width: 40%;
+  height: 200px;
+background: #ffffff;
+padding-left:30px;
+}
+.grid .rigthgrid{
+  width: 60%;
+  height: 200px;
+background: #ffffff;
+}
+.grid .rigthgrid p{
+  font-family: roboto;
+  line-height: 20px;
+  font-size: 18px;
+}
+#jobseekerinfoimage{
+  width: 200px;
+  height: 150px;
+  padding: 10px 30px 10px 10px;
+ 
+}
+.hireMe{
+  
+  text-align: center;
+}
+.hireMe a{
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 24px;
+}
+.card:hover{
+box-shadow: 5px 5px 10px 10px #ccc;
+border: 1px solid #333;
+background-color: #ffffff;
+}
+.card-img-top{
+  padding-left: 10px;
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
+}
+.checkimageProofs{
+  padding-left: 10px;
+  width: 950px;
+  height: 500px;
+}
+  #Approved {
+    color: green;
+}
+#Pending {
+    color: brown;
+}
+@media (max-width: 575px) {
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ecf0f1;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffbbbc;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffbbbc;
+    background-color: #c0392b;
+  }
+
+.grid .jobseekerPix{
+  width: 100px;
+  height: 100px;
+}
+.grid .leftgrid{
+  width: 30%;
+  height: 200px;
+background: #ffffff;
+padding-left:5px;
+}
+.grid .rigthgrid{
+  width: 50%;
+  height: 200px;
+background: #ffffff;
+padding-right:5px;
+margin-left:10px;
+
+}
+.grid .rigthgrid p{
+  font-family: roboto;
+  font-size: 12px;
+}
+  #jobseekerinfoimage{
+  width: 200px;
+  height: 150px;
+  /*padding: 10px 50px 10px 10px;*/
+    }
+
+    .card-img-top{
+  margin-left: 50px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  }
+  .checkimageProofs{
+    width: 350px;
+  height: 300px;
+  margin-left: -13px;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #ecf0f1;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #ffbbbc;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #ffbbbc;
+    background-color: #c0392b;
+  }
+}
+
