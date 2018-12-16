@@ -15,6 +15,8 @@ use App\Imageproof;
 use App\Onlineproof;
 use App\Videoproof;
 use App\Jobapplication;
+use App\Sharedjob;
+
 //use App\Carbon;
 class UserController extends Controller
 {
@@ -31,12 +33,43 @@ class UserController extends Controller
       return view('menialJobSeekers.frontpage',compact(['users']));
 	}
 
-    public function admindashboard() {
+
+public function searchskill(Request $request) {
+
+ $users = User::join('skills','users.id','=','skills.user_id')
+        ->selectRaw('skills.name, skills.description, skills.created_at,
+      users.name, users.sex,users.id,users.phone,users.address,users.photo,users.state,users.lga,users.created_at,users.email, users.about,users.qualification
+        ')
+    ->where('skills.name','like','%'.$request->searchskill.'%')
+      ->orderBy('users.created_at','desc')
+    ->groupBy('skills.user_id')
+   ->paginate(40);
+  
+  return view('menialJobSeekers.frontpage',compact(['users']));
+}
+
+
+public function searchlocation(Request $request)  {
+  $users=DB::table('users')
+    ->where('state','like','%'.$request->searchlocation.'%')
+    ->where('role','applicant')
+    ->orwhere('lga','like','%'.$request->searchlocation.'%')
+      ->orderBy('created_at','desc')
+   ->paginate(40);
+
+      return view('menialJobSeekers.frontpage',compact(['users']));
+
+}
+
+public function admindashboard() {
             $requestedJobs =Employer::all();
             $employers =User::where('role','Employer')->get();
             $applicants =User::where('role','Applicant')->get();
             $userSkill =Skill::where('user_id',Auth::user()->id)->get();
-            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill'));
+            $sharedjobs =Sharedjob::all();
+
+
+            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs'));
         }
 
 
@@ -95,7 +128,8 @@ public function closeJob() {
             'state'=>$request->input('state'),
             'lga'=>$request->input('lga'),
             'email'=>$request->input('email'),
-            'qualification'=>$request->input('qualification')
+            'qualification'=>$request->input('qualification'),
+            'status'=>$request->input('status')
         ]);
 
         if($users){
@@ -120,6 +154,10 @@ public function viewSkills() {
 
 
   public function addSkill(Request $request) {
+    $this->validate($request,[
+        'skillname' => 'required|max:255|string',
+        'skilldescription' => 'required|max:255|string'
+    ]);
         $userID = Auth::user()->id;
         if(auth::check()){
        

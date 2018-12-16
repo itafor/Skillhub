@@ -197,5 +197,65 @@ $('#cancelSMS').click(function(){
 <script>
       CKEDITOR.replace( 'editor1' );
     </script>
+
+
+
+    <script type="text/javascript">
+
+    $('.addRow').on('click',function(){
+        addRow();
+    });
+
+    function addRow(){
+var tr= '<tr>'+
+        '<td><textarea type="text" name="post1[]" id="post1" class="form-control post1"></textarea></td>'+
+        '<td><textarea type="text" name="post2[]" id="post2" class="form-control post2"></textarea></td>'+
+        '<td><a href="#" class="btn btn-danger remove"><i class="fa fa-minus"></i></a></td>'+
+   ' </tr>';
+   ' </tr>';
+    $('tbody').append(tr);
+    }
+
+
+    $('body').delegate('.remove','click',function(){
+        var l=$('tbody tr').length;
+        if(l==1){
+alert('You can not remove last row');
+        }else{
+        $(this).parent().parent().remove();
+        }
+    });
+
+    </script>
+
+
+    <script type="text/javascript">
+  document.getElementById('searchSkillForm').addEventListener('submit',checkInput);
+
+ function  checkInput(e) {
+  let searchskill = document.getElementById('searchskill').value;
+
+  if(!searchskill) {
+    alert('Please enter search keyword for skill');
+    e.preventDefault();
+    return false;
+  }
+  return true;
+  }
+
+
+  document.getElementById('searchLocationForm').addEventListener('submit',checkLocation);
+
+ function  checkLocation(e) {
+  let searchlocation = document.getElementById('searchlocation').value;
+
+  if(!searchlocation) {
+    alert('Please enter search keyword for location');
+    e.preventDefault();
+    return false;
+  }
+  return true;
+  }
+</script>
   </body>
 </html>

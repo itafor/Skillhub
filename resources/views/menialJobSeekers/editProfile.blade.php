@@ -113,6 +113,17 @@ data-dependent="lga" style=" height:60px;">
       <input type="text" class="form-control" name="phone" value="{{$userProfile->phone}}" readonly="readonly" >
     </div>
 </div>
+
+<div class="form-row">
+   <div class="col-md-6 mb-4">
+      <label for="validationCustom02">Employment status</label>
+     <select name="status" class="form-control" required="required">
+       <option value="{{$userProfile->status}}">{{$userProfile->status}} </option>
+       <option value="Available">Available</option>
+       <option value="Hired">Hired</option>
+     </select>
+    </div>
+</div>
   <button class="btn btn-primary" type="submit">Update Profile</button>
 </form>
 

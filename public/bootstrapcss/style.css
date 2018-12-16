@@ -204,6 +204,14 @@ background-color: #ffffff;
 #Pending {
     color: brown;
 }
+.searchitem{
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+ul {
+  list-style-type: none;
+}
 @media (max-width: 575px) {
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
     color: #ecf0f1;
@@ -256,11 +264,13 @@ margin-left:10px;
   height: 300px;
   margin-left: -13px;
   }
+
+  .searchitem{
+    margin-left: -10px;
+  margin-top: 5px;
+
 }
 
-ul {
-  list-style-type: none;
-}
 
 
 

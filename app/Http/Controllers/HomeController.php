@@ -3,7 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
+use Auth;
+use App\User;
+use App\Employer;
+use App\Education;
+use App\Guarantor;
+use App\Skill;
+use App\Hireme;
+use App\Imageproof;
+use App\Onlineproof;
+use App\Videoproof;
+use App\Jobapplication;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +34,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+         $requestedJobs =Employer::all();
+            $employers =User::where('role','Employer')->get();
+            $applicants =User::where('role','Applicant')->get();
+            $userSkill =Skill::where('user_id',Auth::user()->id)->get();
+            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill'));
     }
 }

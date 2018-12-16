@@ -131,4 +131,29 @@ public function getSharedjobs () {
 return back()->with('errors',' selected shared job could not deleted');
     
     }
+
+    public function postJobs(Request $request) {
+        $description =$request->description;
+        $email='mathematicsmadeasy@gmail.com';
+      foreach ($request->post1 as $key => $v) {
+         $jobs = array(
+          'post1'=>$request->post1[$key],
+          'post2'=>$request->post2[$key]
+        );
+
+
+
+          $data= array('description'=>$description,'name'=>'Francis');
+          Mail::send('postAvailableJobsByEmail', $data,$jobs, function($message) use ($email) {
+         $message->to($email, 'Maths')->subject
+            ('Available Jobs');
+         $message->from('myskillhub@gmail.com', 'myskillhub Admin');
+          });
+      }
+
+    
+         return back()->with('success','You have successfully post this job');
+        
+   
+    }
 }

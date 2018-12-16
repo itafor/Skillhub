@@ -15,9 +15,9 @@
 
 //     return view('menialJobSeekers.frontpage');
 // });
-// Route::get('jobseekerinfo', function () {
-//     return view('menialJobSeekers.jobseekerinfo');
-// });
+Route::get('postjob', function () {
+    return view('Admin.postJobs');
+});
 Route::get('jobseekerinfo/{id}', 'UserController@jobseekerinfo')->name('jobseekerinfo');
 
 Route::get('phpinfo', function () {
@@ -25,6 +25,9 @@ Route::get('phpinfo', function () {
 });
 Route::get('/', 'UserController@index');
 
+Route::post('/searchskill', 'UserController@searchskill')->name('searchskill');
+
+Route::post('/searchlocation', 'UserController@searchlocation')->name('searchlocation');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -55,6 +58,8 @@ Route::POST('updateProfile', 'UserController@updateProfile')->name('updateProfil
 Route::POST('addskill', 'UserController@addSkill')->name('addskill');
 Route::get('editskill/{id}', 'UserController@editSkill')->name('editskill');
 Route::post('updateskill/{id}', 'UserController@updateSkill')->name('updateskill');
+Route::get('deleteSkill/{id}', 'UserController@deleteSkill')->name('deleteSkill');
+
 
 Route::post('profilePicture', 'UserController@profilePicture')->name('profilePicture');
 Route::post('updateProfilePicture', 'UserController@updateProfilePicture')->name('updateProfilePicture');
@@ -103,6 +108,7 @@ Route::get('shareJobToApplicants/{id}','AdminController@shareJobToApplicants')->
 Route::get('sharedjobs','AdminController@getSharedjobs')->name('sharedjobs');
 
 Route::get('deleteSharedjob/{id}','AdminController@deleteSharedjob')->name('deleteSharedjob');
+Route::post('postJobs','AdminController@postJobs')->name('postJobs');
 
 });
 

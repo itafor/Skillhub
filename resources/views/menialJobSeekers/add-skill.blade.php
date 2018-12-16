@@ -41,14 +41,14 @@
   <div class="form-row">
     <div class="col-md-6 mb-4">
       <label for="validationCustom01">Skill name</label>
-      <textarea name="skillname" class="form-control" placeholder=" Enter skills seperated with commas e.g. Cleaner, maths teacher,web developer"  required></textarea>
+      <input type="text" name="skillname" class="form-control" placeholder="Enter skill e.g. web developer"  required>
     </div>
    
   </div>
   <div class="form-row">
     <div class="col-md-12 mb-3">
       <label>Descript your skill</label>
-    <textarea name="skilldescription" class="form-control"  placeholder="I am a good mathematics teacher with outstanding record"></textarea>
+    <textarea name="skilldescription" class="form-control"  placeholder="I am a good mathematics teacher with outstanding record" required="required"></textarea>
     </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
