@@ -102,8 +102,10 @@
 </ul>
 <hr>
    <span><i class="fa fa"></i>STATUS: <b>{{$users->status}}</b></span><br>
-
-<div class="hireMe btn btn-primary"><a href="/requestUser/{{$users->id}}">{{$users->status == 'Available'? 'HIRE ME' : 'HIRED'}} </a>
+<?php $userId = $users->id; 
+     $cryptId = Crypt::encrypt($userId);       
+?>
+<div class="hireMe btn btn-primary"><a href="/requestUser/{{$cryptId}}">{{$users->status == 'Available'? 'HIRE ME' : 'HIRED'}} </a>
    </div>
    <hr>
                 </div>

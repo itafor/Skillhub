@@ -1,6 +1,6 @@
 @extends('master.dashboard')
 @section('content')
-      @include('master.header')
+
 
 
  <!-- breadcrum start -->
@@ -20,14 +20,7 @@
     <div class="row">
   <!-- Begin SIDE BAR -->
       @include('master.sideMenu')
-  <!-- END SIDE BAR -->
-
-  <!-- Begin main content -->
-
-
-
   
-
        <div class="col-md-9">
 
 <div class="card">

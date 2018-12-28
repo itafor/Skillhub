@@ -17,7 +17,7 @@ height: 33px;
 
 
  .navbar {
-  background-color: #e74c3c;
+  /*background-color: #e74c3c;*/
 }
 .navbar .navbar-brand {
   color: #ecf0f1;
@@ -93,6 +93,7 @@ background: #333333;
 color: #ffffff;
 padding-bottom: 10px;
 margin-bottom: 15px;
+margin-top: 50px;
 }
 #header .create{
 padding-top:  20px;
@@ -212,7 +213,14 @@ background-color: #ffffff;
 ul {
   list-style-type: none;
 }
-@media (max-width: 575px) {
+.applicantsList {
+  padding: 10px 50px 50px 50px;
+}
+.mobileview{
+  display: none;
+}
+
+@media (max-width: 1000px) {
   .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
     color: #ecf0f1;
   }
@@ -271,21 +279,40 @@ margin-left:10px;
 
 }
 
-
-
-
-
-@media (max-width: 767px) {
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-    color: #ecf0f1;
-  }
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-    color: #ffbbbc;
-  }
-  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
-    color: #ffbbbc;
-    background-color: #c0392b;
-  }
+.applicantsList {
+  padding: 10px 50px 50px 100px;
 }
+.mobileview{
+  display: inline-block;
+}
+
+.desktopView {
+  display:none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.logo{
+  margin-left: 100px;
+  text-align: center;
+}
+}
+
+
 

@@ -15,6 +15,7 @@ use App\Imageproof;
 use App\Onlineproof;
 use App\Videoproof;
 use App\Jobapplication;
+use App\Sharedjob;
 class HomeController extends Controller
 {
     /**
@@ -38,6 +39,10 @@ class HomeController extends Controller
             $employers =User::where('role','Employer')->get();
             $applicants =User::where('role','Applicant')->get();
             $userSkill =Skill::where('user_id',Auth::user()->id)->get();
-            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill'));
+            $sharedjobs =Sharedjob::all();
+            $employerJobReq =Employer::where('user_id',Auth::user()->id)->get();
+
+
+            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs','employerJobReq'));
     }
 }

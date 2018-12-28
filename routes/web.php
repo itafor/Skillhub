@@ -15,6 +15,10 @@
 
 //     return view('menialJobSeekers.frontpage');
 // });
+Route::get('main', function () {
+    return view('master.main');
+});
+
 Route::get('postjob', function () {
     return view('Admin.postJobs');
 });

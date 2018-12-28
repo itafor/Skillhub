@@ -72,11 +72,24 @@
 
   <div class="form-row">
     <div class="col-md-12 mb-3">
+      <label>Select required skills</label>
+        
+        <select name="skills[]" class="form-control chzn-select" multiple="true"  >
+          @foreach($myskills as $skill)
+            <option value="{{$skill->name}}">{{$skill->name}}</option>
+          @endforeach
+        </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
       <label>Describe your needs</label>
     <textarea name="Empdescription" class="form-control" cols="10" rows="5" placeholder="Please, Briefly describe what you want from this applicant"></textarea>
     
     </div>
   </div>
+
   <button class="btn btn-primary" type="submit">Submit Request</button>
 </form>
 </div>
@@ -90,6 +103,5 @@
   </div>
 </section>
     <!-- end page content -->
-
 
 @endsection

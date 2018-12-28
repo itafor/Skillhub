@@ -1,48 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Admin Area | Dashboard </title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="css/style.css">
+  <title>Welcome to myTunes</title>
+</head>
+<body>
 
-    <!-- Bootstrap core CSS -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
- <link href="{{ asset('bootstrapcss/style.css') }}" rel="stylesheet">
- <link href="{{ asset('bootstrapcss/jquery.datetimepicker.min.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
-   
-    <!-- ckeditor -->
- <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+  <!-- Showcase & Nav -->
+  <div id="showcase">
+    <header>
+      <nav class='cf'>
+        <ul class='cf'>
+          <li class="hide-on-small">
+            <a href="#showcase">SkillsHub</a>
+          </li>
+          <li>
+              <a href="{{url('add-skill')}}">Post Skills </a>
+            </li>
+          <li>
+              <a  href="{{url('request-Job-seekers')}}">Employers</a>
+            </li>
+          <li>
+              <a  href="#">About</a>
+            </li>
+          <li>
+              <a  href="#">Services</a>
+            </li>
+        <!-- </ul> -->
 
- <style>
- .invalid-feedback{
-     color: brown;
- }
-</style>
-  </head>
-  <body>
-    
-@include('inc.navbar')
 
-      
-           
+           <!-- <ul class="navbar-nav navbar-right"> -->
+              @guest
+            <li class="pull-right">
+              <a  href="{{ route('login') }}">Login</a>
+            </li>
+            <li >
+              <a  href="{{ route('register') }}">Signup</a>
+            </li>
+            @else
+            <!-- usermenu start -->
+            <li >
+              <span  style="margin-right: 20px;">{{auth::user()->role}}</span>
+            </li>
+            <li >
+<div class="dropdown create">
+           <span class="dropdown-toggle" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
+        </span>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-user"></i> My Profile</a>
+
+         <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
+      </div>
+  </div>
+            </li> <!-- usermenu end -->
+            <li>
+              <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            </li>
+          </ul>
+           @endguest 
+
+
+
+
+
+
+        <a href='#' id='openup'>myTunes</a>
+      </nav>
+    </header>
+    <div class="section-main container">
+      <h1>myTunes.</h1>
+      <h2>Your music, movies, and TV shows take center stage.</h2>
+      <p class="lead hide-on-small">
+        myTunes is the best way to organize and enjoy the music, movies, and TV shows you already have — and shop for the ones you
+        want. Enjoy all the entertainment myTunes has to offer on your Mac and PC.
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @include('inc.success')
 @include('inc.errors') 
      
  @yield('content')
 
-
-
-
-    
 
   <!-- Footer -->
   <footer>
@@ -127,9 +196,15 @@
       </div>
     </div>
     <div class="footer-bottom text-center">
-      Copyright &copy; 2018 Myskillhub
+      Copyright &copy; 2018 Orange myTunes
     </div>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -251,5 +326,6 @@ $(function() {
     $(".chzn-select").chosen();
 });
 </script>
-  </body>
+</body>
+
 </html>

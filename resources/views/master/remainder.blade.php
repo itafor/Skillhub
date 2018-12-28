@@ -8,7 +8,7 @@
   
 <small class="offset-6">
 					@if(auth::user()->role == 'Applicant')
-				<small style="font-size: 16px;">Employment Status:		{{auth::user()->status}} </small> <a href="/editProfile"><li class="fa fa-pencil"></li></a>
+				<small style="font-size: 16px;">Status: {{auth::user()->status}} </small> <a href="/editProfile"><li class="fa fa-pencil"></li></a>
 					@endif
   
 	

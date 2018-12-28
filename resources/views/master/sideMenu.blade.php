@@ -8,12 +8,12 @@
             <?= auth::user()->role == 'Admin' ? 
            '<li class="list-group-item"> <i class="fa fa-list-alt"></i> <a href="/adminViewEmpAppReq"> Request  </a> </li>
 
-           <li class="list-group-item"> <i class="fa fa-list-alt"></i> <a href="/sharedjobs"> Shared Jobs <span class="badge badge-secondary">43</span> </a> </li>
+           <li class="list-group-item"> <i class="fa fa-list-alt"></i> <a href="/sharedjobs"> Shared Jobs  </a> </li>
 
-           <li class="list-group-item"><i class="fa fa-pencil"></i> <a href="/emprequest"> Hiring <span class="badge badge-secondary">12</span> </a></li>
-           <li class="list-group-item"> <i class="fa fa-user"></i> <a href="#"> Employers <span class="badge badge-secondary" >129</span> </a></li>
-           <li class="list-group-item"> <i class="fa fa-user"></i> <a href="#"> Applicants     <span class="badge badge-secondary" >129</span> </a></li>
-           <li class="list-group-item"> <i class="fa fa-user"></i> <a href="#"> Application    <span class="badge badge-secondary" >129</span> </a></li>' : '' ?>
+           <li class="list-group-item"><i class="fa fa-pencil"></i> <a href="/emprequest"> Hiring  </a></li>
+           <li class="list-group-item"> <i class="fa fa-user"></i> <a href="/all-employers"> Employers </a></li>
+           <li class="list-group-item"> <i class="fa fa-user"></i> <a href="/all-applicants"> Applicants  </a></li>
+           ' : '' ?>
          
           <!--   Employers  menus -->
            

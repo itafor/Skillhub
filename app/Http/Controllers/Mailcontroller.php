@@ -14,7 +14,7 @@ use App\Education;
 use App\Guarantor;
 use App\Skill;
 use App\Hireme;
-
+use Illuminate\Support\Facades\Input;
 class MailController extends Controller {
    
    public function saveRequest(Request $request){
@@ -31,10 +31,12 @@ class MailController extends Controller {
     $empphone = $request->empphone;
     $empEmail = $request->empEmail;
    	$Empdescription = $request->Empdescription;
+    $skills = implode(',', Input::get('skills'));
+
 
       $data = array('name'=>'Itafor Francis','Empdescription'=>$Empdescription,
-      	'empName'=>$empName,'empEmail'=>$empEmail,'empphone'=>$empphone,'userID'=>$userID);
-     $mail = Mail::send('mailtoadmin', $data, function($message) use ($userID,$empName,$empphone,$empEmail,$Empdescription) {
+      	'empName'=>$empName,'empEmail'=>$empEmail,'empphone'=>$empphone,'userID'=>$userID,'skills'=>'skills');
+     $mail = Mail::send('mailtoadmin', $data, function($message) use ($userID,$empName,$empphone,$empEmail,$Empdescription,$skills) {
          $message->to('itaforfrancis@gmail.com', 'mySkillhub')->subject
             ('Request to hire an applicant');
          $message->from($empEmail, $empName);
@@ -45,6 +47,9 @@ class MailController extends Controller {
      $hiredApplicant->empphone = $request->input('empphone');
      $hiredApplicant->empEmail = $request->input('empEmail');
      $hiredApplicant->Empdescription = $request->input('Empdescription');
+     
+     $hiredApplicant->skills = implode(',', Input::get('skills'));
+   
      $hiredApplicant->user_id = $request->input('user_id');
      $hiredApplicant->save();
 

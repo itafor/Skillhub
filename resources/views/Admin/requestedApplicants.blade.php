@@ -51,6 +51,7 @@
                    <th>NAME</th>
                    <th>EMAIL</th>
                    <th>PHONE</th>
+                   <th>SKILLS NEEDED</th>
                    <th>DESCRIPTION</th>
                    <th>APPLICANT REQUESTED</th>
                    <th>ACTION</th>
@@ -61,6 +62,7 @@
                    <td>{{$request->empName}}</td>
                    <td>{{$request->empEmail}}</td>
                    <td>{{$request->empphone}}</td>
+                   <td><p>{{$request->skills}}</p></td>
                    <td>{{$request->Empdescription}}</td>
                    <td><a href="applicanttohire/{{$request->id}}">View</a></td>
                    <td><a href="deleteReq/{{$request->id}}" onclick="return confirm('Are you sure to delete this Employer request?');"><i class="fa fa-remove text-danger"></i></a></td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use DB;
 use Auth;
 use App\User;
@@ -63,13 +64,14 @@ public function searchlocation(Request $request)  {
 
 public function admindashboard() {
             $requestedJobs =Employer::all();
+            $employerJobReq =Employer::where('user_id',Auth::user()->id)->get();
             $employers =User::where('role','Employer')->get();
             $applicants =User::where('role','Applicant')->get();
             $userSkill =Skill::where('user_id',Auth::user()->id)->get();
             $sharedjobs =Sharedjob::all();
 
 
-            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs'));
+            return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs','employerJobReq'));
         }
 
 
@@ -87,7 +89,8 @@ public function closeJob() {
     }
 
   public function jobseekerinfo($id) {
-      $users = User::where('id',$id)->first();
+    $userId = Crypt::decrypt($id);
+      $users = User::where('id',$userId)->first();
       return view('menialJobSeekers.jobseekerinfo',compact(['users']));
   }
 
@@ -328,8 +331,10 @@ public function checkOnlineProofs($id) {
     }
 
     public function selectUserToRequest($id) {
-        $userID = User::where('id',$id)->first();
-        return view('sendmailtoadmin',compact(['userID']));
+    $user= Crypt::decrypt($id);
+        $userID = User::where('id',$user)->first();
+        $myskills =$userID->skills;
+        return view('sendmailtoadmin',compact(['userID','myskills']));
     }
 
 

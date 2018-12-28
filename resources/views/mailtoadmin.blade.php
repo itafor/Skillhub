@@ -11,6 +11,9 @@
 <h4>Employer Name {{$empName}}</h4>
 <h4>Employer Phone {{$empphone}}</h4>
 <h4>Employer Email {{$empEmail}}</h4>
+
+
+
 <p>
 <h2>Emplyer description</h2>
 {{$Empdescription}}</p>
