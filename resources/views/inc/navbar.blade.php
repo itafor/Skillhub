@@ -99,6 +99,3 @@
            @endguest 
         </div>
     </nav>
-
-
-  

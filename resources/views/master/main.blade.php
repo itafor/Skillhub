@@ -74,11 +74,6 @@
           </ul>
            @endguest 
 
-
-
-
-
-
         <a href='#' id='openup'>myTunes</a>
       </nav>
     </header>
@@ -92,25 +87,10 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @include('inc.success')
 @include('inc.errors') 
      
- @yield('content')
+ @yield('content') 
 
 
   <!-- Footer -->

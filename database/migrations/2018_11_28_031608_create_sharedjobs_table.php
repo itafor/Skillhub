@@ -20,7 +20,7 @@ class CreateSharedjobsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('job_id')->unsigned();
             $table->foreign('job_id')->references('id')->on('employers');
-            $table->foreign('user_id')->references('id')->on('users');
+           $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
