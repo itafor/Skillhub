@@ -55,10 +55,8 @@
               </form>
     </div>
 </div>
-       
 </ul>
-           @endif
-
+      @endif
 
    <div>
            <ul class="navbar-nav navbar-right desktopView">

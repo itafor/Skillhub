@@ -17,9 +17,9 @@
          <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addpage"><i class="fa fa-list-alt"></i> Add page</a>
           <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
         <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Users</a>
-      </div>
-  </div>
-            </div>
+               </div>
+             </div>
+           </div>
           </div>
         </div>
     </header>

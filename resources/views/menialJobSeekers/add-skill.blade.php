@@ -1,10 +1,7 @@
 @extends('master.dashboard')
 @section('content')
-
-
-
+@include('master.header')
  <!-- breadcrum start -->
-
 <section id="breadcrum">
   <div class="container">
     <ol class="breadcrum">
@@ -21,12 +18,11 @@
   <!-- Begin SIDE BAR -->
       @include('master.sideMenu')
   
-       <div class="col-md-9">
+    <div class="col-md-9">
 
 <div class="card">
            <h5 class="card-header main-color-bg" style="color: #fff;">Add Skill</h5>
         <div class="card-body">
-
 
       <!--POST SKILL FORM STARTS-->
 <form  action="{{route('addskill')}}" method="POST" enctype="multipart/form-data">

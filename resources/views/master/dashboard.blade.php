@@ -31,17 +31,11 @@
   <body>
     
 @include('inc.navbar')
-       
            
 @include('inc.success')
 @include('inc.errors') 
      
  @yield('content')
-
- 
-
-
-    
 
   <!-- Footer -->
   <footer>
