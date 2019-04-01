@@ -1,11 +1,10 @@
 @extends('master.dashboard')
 @section('content')
 <div id="showcase">
- <h2 class="text-light">MyskillHun...where Employers meets skilled Job seekers</h2>
+ <!-- <h2 class="text-light">MyskillHun...where Employers meets skilled Job seekers</h2> -->
 
 <div class="section-main container">
  <h2 class="text-light">Search Job seekers by Skills or by Location</h2>
-        
           <div class="row">
             <div class="col-md-12  ">
              <div class="col-md-6 pull-left">
@@ -108,6 +107,8 @@
     <!-- end page content -->
 
 @include('inc.testimonies')
+
+@include('master.footer') 
 
 
 @endsection

@@ -62,20 +62,26 @@
     <li class="list-group-item"><i class="fa fa-map-marker"></i>  {{$users->state}}</li>
   </ul>
   <div class="card-body">
+  @if(count($users->imageproofs))
     @foreach ($users->imageproofs as $image)
 <a href="/checkimageproof/{{$image->user_id == '' ? '' : $image->user_id}}" target="_blank">
  {{$image->user_id == '' ? '' : 'Picture Proof'}}</a></span><br>
   @endforeach
+@endif
 
+@if(count($users->videos))
     @foreach ($users->videos as $video)
 <a href="/checkvideoproof/{{$video->user_id == '' ? '' : $video->user_id}}" target="_blank">
  {{$video->user_id == '' ? '' : 'Video Proof'}}</a></span><br>
   @endforeach
+  @endif
 
+  @if(count($users->onlineproofs))
   @foreach ($users->onlineproofs as $online)
 <a href="/checkonlineproof/{{$online->user_id == '' ? '' : $online->user_id}}" target="_blank">
  {{$online->user_id == '' ? '' : 'Website URL'}}</a></span><br>
   @endforeach
+  @endif
   </div>
 
         
