@@ -70,7 +70,7 @@
             @else
             <!-- usermenu start -->
             <li class="nav-item">
-              <span  style="margin-right: 20px;">{{auth::user()->role}}</span>
+              <!-- <span  style="margin-right: 20px; color:#ffffff"> {{ auth::user()->name}} ({{auth::user()->role}})</span> -->
             </li>
             <li class="nav-item">
 <div class="dropdown create">
@@ -78,10 +78,8 @@
   <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
         </span>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-user"></i> My Profile</a>
-
+          <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-user"></i> My Profile</a>
          <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
       </div>
   </div>
             </li> <!-- usermenu end -->

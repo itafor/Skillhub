@@ -21,31 +21,23 @@ use App\Sharedjob;
 //use App\Carbon;
 class UserController extends Controller
 {
-
-  
-
 	 public function index() {
     $this->closeJob();
-    
-  $users = User::where('role','Applicant')
+     $users = User::where('role','Applicant')
       ->orderBy('created_at','desc')
-       ->paginate(40);
-      
+       ->paginate(6);
       return view('menialJobSeekers.frontpage',compact(['users']));
 	}
 
-
 public function searchskill(Request $request) {
-
  $users = User::join('skills','users.id','=','skills.user_id')
         ->selectRaw('skills.name, skills.description, skills.created_at,
       users.name, users.sex,users.id,users.phone,users.address,users.photo,users.state,users.lga,users.created_at,users.email, users.about,users.qualification
         ')
-    ->where('skills.name','like','%'.$request->searchskill.'%')
-      ->orderBy('users.created_at','desc')
-    ->groupBy('skills.user_id')
+   ->where('skills.name','like','%'.$request->searchskill.'%')
+   ->orderBy('users.created_at','desc')
+   ->groupBy('skills.user_id')
    ->paginate(40);
-  
   return view('menialJobSeekers.frontpage',compact(['users']));
 }
 
@@ -69,8 +61,6 @@ public function admindashboard() {
             $applicants =User::where('role','Applicant')->get();
             $userSkill =Skill::where('user_id',Auth::user()->id)->get();
             $sharedjobs =Sharedjob::all();
-
-
             return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs','employerJobReq'));
         }
 
@@ -174,21 +164,14 @@ public function viewSkills() {
     } else {
         return back()->withInput()->with('errors','Error adding new skill');
         }
-      
-
   }
 return view('auth.login');
  
     }
- 
-
-
 
  public function updateSkill(Request $request)
     {
-
-      
-        $skills = Skill::WHERE('id', $request->id)
+       $skills = Skill::WHERE('id', $request->id)
         ->update([
             'name'=>$request->input('skillname'),
             'description'=>$request->input('skilldescription'),
@@ -323,7 +306,6 @@ public function storeVideoProof(Request $request)
 
 public function checkOnlineProofs($id) {
         $userSex = User::where('id',$id)->first();
-
         $checkOnlineProofs = Onlineproof::where('user_id',$id)
         ->orderBy('created_at','DSC')
         ->get();
@@ -337,11 +319,8 @@ public function checkOnlineProofs($id) {
         return view('sendmailtoadmin',compact(['userID','myskills']));
     }
 
-
-
       public function checkImageProofs($id) {
         $userSex = User::where('id',$id)->first();
-
         $checkimageProofs = Imageproof::where('user_id',$id)
         ->orderBy('created_at','DSC')
         ->get();
@@ -369,7 +348,6 @@ public function checkOnlineProofs($id) {
   }
 
 public function applyToThisJob ($id) {
-
    $checkApplication =Jobapplication::where('user_id',auth::user()->id)
    ->where('job_id',$id)->first();
    if($checkApplication) {
@@ -379,7 +357,6 @@ return back()->with('errors','You have already applied for this job');
    $applications->job_id = $id;
    $applications->user_id = auth::user()->id;
    $applications->save();
-
 if($applications){
          return  Back()->with('success','You have successfully applied to this job');
         }

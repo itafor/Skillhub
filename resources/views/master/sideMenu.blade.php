@@ -1,6 +1,6 @@
  <div class="col-md-3">
         <ul class="list-group">
-           <li class="list-group-item active main-color-bg"><i class="fa fa-cog"></i> Dashboard</li>
+           <!-- <li class="list-group-item active main-color-bg"><i class="fa fa-cog"></i> Dashboard</li> -->
           <!--   Admin  menus -->
           <?php $totalImageProof = count(auth::user()->imageproofs)?>
           <?php $totalReq = count(auth::user()->employers)?>
