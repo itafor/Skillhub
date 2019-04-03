@@ -1,29 +1,6 @@
 @extends('master.dashboard')
 @section('content')
- <header id="header">
-        <div class="container"> 
-          <div class="row">
-            <div class="col-md-10">
-              <h2><i class="fa fa-cog"></i> Dashboard <small>Manage your Site</small></h2>
-            </div>
-
-            <div class="col-md-2 ">
-
-              <div class="dropdown create">
-           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Create Content
-        </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addpage"><i class="fa fa-list-alt"></i> Add page</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Users</a>
-               </div>
-             </div>
-           </div>
-          </div>
-        </div>
-    </header>
-
+@include('master.header') 
  <!-- breadcrum start -->
 <section id="breadcrum">
   <div class="container">
@@ -45,9 +22,9 @@
                    <div id="message"></div>
       
  <div class="card">
-           <h5 class="card-header main-color-bg" style="color: #fff;">All Employers: {{count($allEmployers)}}</h5>
+           <h5 class="card-header main-color-bg" style="color: #fff;">All Applicants: {{count($allApplicants)}}</h5>
         <div class="card-body">
-                  @if(count($allEmployers) > 0)
+                  @if(count($allApplicants) > 0)
                <table class="table table-striped table-hover table-responsive table-bordered"  >
                  <tr>
                    <th>REG.DATE</th>
@@ -58,28 +35,25 @@
                    <th>VIEW MORE</th>
                    <th>DELETE</th>
                  </tr>
-                  @foreach($allEmployers as $allEmployer)
+                  @foreach($allApplicants as $applicant)
                 
                  <tr>
-                  <td>{{ Carbon\carbon::createFromTimestamp(strtotime($allEmployer->created_at))->diffForHumans()}}</td>
-                   <td>{{$allEmployer->name}}</td>
-                   <td>{{$allEmployer->sex}}</td>
-                   <td>{{$allEmployer->phone}}</td>
-                   <td>{{$allEmployer->email}}</td>
-                   
+                  <td>{{ Carbon\carbon::createFromTimestamp(strtotime($applicant->created_at))->diffForHumans()}}</td>
+                   <td>{{$applicant->name}}</td>
+                   <td>{{$applicant->sex}}</td>
+                   <td>{{$applicant->phone}}</td>
+                   <td>{{$applicant->email}}</td>
 
-              <td> <a href="viewEmployer/{{$allEmployer->id}}" class="text-primary"><i class="fa fa-eye"></i> Details</a></td>
-              <td> <a href="deleteEmployer/{{$allEmployer->id}}" class="text-danger" onclick="return confirm('You are about to delete the selected Employer, are you sure?')"><i class="fa fa-remove"></i></a></td>
-
-                 
+              <td> <a href="viewApplicant/{{$applicant->id}}" class="text-primary"><i class="fa fa-eye"></i> Details</a></td>
+              <td> <a href="deleteEmployer/{{$applicant->id}}" class="text-danger" onclick="return confirm('You are about to delete the selected applicant, are you sure?')"><i class="fa fa-remove"></i></a></td>
              
                    @endforeach
                    @else
-                   <h4>No employer Found</h4>
+                   <h4>No Applicant Found</h4>
                    @endif
                  </tr>
                </table> 
-
+             <span style="float:right">{{$allApplicants->links()}}</span>  
         </div>
 </div>  <!-- Latest Users ends-->
 

@@ -129,6 +129,8 @@ Route::POST('dynamicdependent', 'UserController@fetch')->name('dynamicdependent.
 Route::get('checkvideoproof/{id}', 'UserController@checkVideoProofs')->name('checkvideoproof');
 Route::get('checkimageproof/{id}', 'UserController@checkImageProofs')->name('checkimageproof');
 Route::get('checkonlineproof/{id}', 'UserController@checkOnlineProofs')->name('checkonlineproof');
+Route::get('viewApplicant/{id}', 'UserController@viewApplicants')->name('viewApplicant');
+
 
 // Email related routes
 Route::get('requestUser/{id}', 'UserController@selectUserToRequest')->name('selectUserToRequest');

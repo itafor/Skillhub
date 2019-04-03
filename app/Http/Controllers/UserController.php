@@ -66,7 +66,7 @@ public function admindashboard() {
 
 
 public function allApplicants() {
-            $allApplicants =User::where('role','Applicant')->get();
+            $allApplicants =User::where('role','Applicant')->paginate(5);
             return view('menialJobSeekers.all-applicants',compact('allApplicants'));
    }
 
@@ -263,10 +263,16 @@ public function storeImageProof(Request $request)
         return view('menialJobSeekers.viewImageProof',compact(['imageProofs']));
     }
 
-     
+    public function viewApplicants($id) {
+      $users = User::where('id',$id)->first();
+      //dd($applicant);
+      return view('menialJobSeekers.jobseekerinfo',compact(['users']));
+
+      //return view('menialJobSeekers.viewImageProof',compact(['imageProofs']));
+  }
+    
 public function storeVideoProof(Request $request)
     {
-
       $this->validate($request,[
         'videoname'=>'required|max:255',
         'videoProof'=>'required|max:6000|mimetypes:video/mp4'

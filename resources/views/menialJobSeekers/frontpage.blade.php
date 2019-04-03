@@ -96,7 +96,7 @@
 </section>
     <!-- end page content -->
 
-@include('inc.testimonies')
+
 
 @include('master.footer') 
 
