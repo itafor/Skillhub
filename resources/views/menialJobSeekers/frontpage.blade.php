@@ -95,9 +95,6 @@
   </div>
 </section>
     <!-- end page content -->
-
-
-
 @include('master.footer') 
 
 @endsection

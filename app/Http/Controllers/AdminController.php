@@ -118,12 +118,11 @@ public function getSharedjobs () {
         $sharedjobs = DB::table('sharedjobs')
             ->orderBy('created_at','desc')
             ->paginate(10);
-  return view('admin.sharedjobs',['sharedjobs'=>$sharedjobs]);
+  return view('admin.sharedjobs',['sharedjobs'=>$sharedjobs]) ;
     }
 
     public function deleteSharedjob($id)
     {
-        //dd($project);
         $findUrl = Sharedjob::find($id);
         if($findUrl->delete()){
          return  Back()->with('success','selected Shared job deleted successfully');

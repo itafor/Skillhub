@@ -79,8 +79,8 @@ public function closeJob() {
     }
 
   public function jobseekerinfo($id) {
-    $userId = Crypt::decrypt($id);
-      $users = User::where('id',$userId)->first();
+    //$userId = Crypt::decrypt($id);
+      $users = User::where('id',$id)->first();
       return view('menialJobSeekers.jobseekerinfo',compact(['users']));
   }
 

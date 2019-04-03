@@ -26,7 +26,7 @@
            <h5 class="card-header main-color-bg" style="color: #fff;"> {{count($applicationsToThisJob)}} people have applied for this job</h5>
         <div class="card-body">
                   @if(count($applicationsToThisJob) > 0)
-               <table class="table table-striped table-hover table-responsive" >
+               <table class="table table-striped table-hover" >
                  <tr>
                 
                    <th>Job</th>
