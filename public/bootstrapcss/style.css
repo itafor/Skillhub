@@ -1,6 +1,52 @@
 html, body {
-  background: #f4f4f4;
+  background: #f1f1f1;
   height: 100%;
+  font-family: sans-serif;
+  color:#3c3939;
+}
+.profile-card{
+  width: 300px;
+  margin: auto;
+
+  
+  
+  padding: 10px 30px 10px 10px;
+
+  background: #fff;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0,0.5);
+}
+.image-container{
+  position: relative;
+}
+.info{
+ color: #4b4fe2;
+ margin-right: 16px;
+}
+.main-container{
+padding: 20px
+}
+.skill-bar{
+  background-color: #bdc9ea;
+  border-radius: 16px;
+}
+.progress-bar{
+  padding: 0.1em 16px;
+  border-radius: 16px;
+  text-align: center;
+  color:#fff;
+  background-color: #4b4fe2;
+}
+.title{
+  position: absolute;
+  left: 15px;
+margin-top: -20px;
+  color: #000;
+}
+.profile-image{
+   padding: 20px;
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
 }
 /*navbar*/
 .navbar {
@@ -79,10 +125,10 @@ height: 33px;
   background-color: #ffbbbc;
   color: #fff;
 }
-/*custome color*/
+/*customer color*/
 .main-color-bg {
   background-color: #e74c3c !important;
-  border-color: #c0392b !important
+  border-color: #c0392b !important;
   color: #ffffff !important;
 }
 /*Remove Caret from drodown*/
@@ -187,7 +233,7 @@ background: #ffffff;
 background-color: #ffffff;
 }
 .card-img-top{
-  padding-left: 10px;
+  padding: 20px;
   height: 250px;
   width: 250px;
   border-radius: 100%;

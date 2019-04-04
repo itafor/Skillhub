@@ -41,8 +41,6 @@ class HomeController extends Controller
             $userSkill =Skill::where('user_id',Auth::user()->id)->get();
             $sharedjobs =Sharedjob::all();
             $employerJobReq =Employer::where('user_id',Auth::user()->id)->get();
-
-
             return view('admindashboard',compact('requestedJobs','employers','applicants','userSkill','sharedjobs','employerJobReq'));
     }
 }

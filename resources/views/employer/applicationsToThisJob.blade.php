@@ -28,20 +28,18 @@
                   @if(count($applicationsToThisJob) > 0)
                <table class="table table-striped table-hover" >
                  <tr>
-                
                    <th>Job</th>
                    <th>Applicant</th>
                    <th>Date</th>
                  </tr>
                   @foreach($applicationsToThisJob as $req)
-                
                  <tr>
+                 <?php $userId =$req->user_id; 
+          $cryptId = Crypt::encrypt($userId);       
+                ?>
               <td> <a href="/viewSpecificEmpReq/{{$req->job_id}}" target="_blank">job details</a></td>
-                   
-              <td> <a href="/jobseekerinfo/{{$req->user_id}}" target="_blank">Applicant details</a></td>
-
+              <td> <a href="/jobseekerinfo/{{$cryptId}}" target="_blank">Applicant details</a></td>
               <td>{{ Carbon\carbon::createFromTimestamp(strtotime($req->created_at))->diffForHumans()}}</td>
-
                    @endforeach
                    @else
                    <h4>No applicants found</h4>

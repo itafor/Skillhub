@@ -36,7 +36,7 @@
   </div>
   <div class="form-row">
     <div class="col-md-12 mb-3">
-      <label>Descript your skill</label>
+      <label>Describe your skill</label>
     <textarea name="skilldescription" class="form-control"  placeholder="I am a good mathematics teacher with outstanding record" required="required"></textarea>
     </div>
   </div>

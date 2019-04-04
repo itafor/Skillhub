@@ -79,8 +79,8 @@ public function closeJob() {
     }
 
   public function jobseekerinfo($id) {
-    //$userId = Crypt::decrypt($id);
-      $users = User::where('id',$id)->first();
+    $userId = Crypt::decrypt($id);
+      $users = User::where('id',$userId)->first();
       return view('menialJobSeekers.jobseekerinfo',compact(['users']));
   }
 
@@ -109,7 +109,7 @@ public function closeJob() {
             'sex' => 'required|max:255',
             'address' => 'required|max:255',
             'state' => 'required|max:255',
-            'lga' => 'required|max:255',
+            //'lga' => 'required|max:255',
             'email' => 'required|max:255',
             'qualification' => 'required|max:255',
             ]);
@@ -264,7 +264,8 @@ public function storeImageProof(Request $request)
     }
 
     public function viewApplicants($id) {
-      $users = User::where('id',$id)->first();
+      $userId = Crypt::decrypt($id);
+      $users = User::where('id',$userId)->first();
       //dd($applicant);
       return view('menialJobSeekers.jobseekerinfo',compact(['users']));
 

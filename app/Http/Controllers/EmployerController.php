@@ -30,6 +30,12 @@ class EmployerController extends Controller
             $allEmployers =User::where('role','Employer')->get();
             return view('employer.allEmployers',compact('allEmployers'));
    }
+
+  public function viewEmployer($id){
+    $employer = User::where('role','Employer')
+    ->where('id',$id)->first();
+    dd($employer);
+   }
 //store employer requested application
 public function storeRequestedJobseekers(Request $request) {
 
@@ -168,8 +174,6 @@ public function  editSpecificEmpReq($id) {
         }
         return back()->withInput()->with('errors','Request update failed');
     }
-
-
       public function applicationsToThisJob($id) {
 
          $applicationsToThisJob = Jobapplication::where('job_id', $id)->get();
@@ -177,8 +181,6 @@ public function  editSpecificEmpReq($id) {
   return view('employer.applicationsToThisJob',compact(['applicationsToThisJob']));
 
       }
-
-
 
     public function fetch(Request $request){
     $select = $request->get('select');

@@ -22,16 +22,20 @@
                    <div id="message"></div>
       
  <div class="card">
-           <h5 class="card-header main-color-bg" style="color: #fff;">MY SKILLS</h5>
+ 
+ <div class="card-header main-color-bg">
+ <h6  style="color: #fff; float:left;"> MY SKILLS</h6>
+ <h6 style="float:right;" > <a style="color: #fff;" href="/add-skill"  data-toggle="tooltip" rel="tooltip" data-placement="top" title="Add Skill"><i class="icon fa fa-plus"></i></a></h6>
+ </div>
         <div class="card-body">
                   @if(count($skills) > 0)
-               <table class="table table-striped table-hover table-responsive table-bordered"  >
+               <table class="table table-striped table-hover  table-bordered"  >
                  <tr>
                    <th>SKILL NAME</th>
                    <th>DESCRIPTION</th>
                    <th>DATE ADDED</th>
-                   <th>UPDATE</th>
-                   <th>DELETE</th>
+                   <th colspan="2">ACTION</th>
+                  
                  </tr>
                   @foreach($skills as $skill)
                 
@@ -59,6 +63,7 @@
 
     </div>
   </div>
+  
 </section>
     <!-- end page content -->
 
@@ -68,15 +73,18 @@
     
      // declare variables and objects properties
     let pending = document.getElementById('Pending');
-
     let approve = document.getElementById('Approved');
-
-    
     pending.style.color = 'Brown';
     approve.style.color = 'Green';
-
-    
-   
   }());
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+            });
+        </script>
 @endsection

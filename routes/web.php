@@ -98,6 +98,7 @@ Route::post('updateRequestedJobseekers/{id}', 'EmployerController@updateRequeste
 Route::get('deleteSpecificEmpReq/{id}', 'EmployerController@destroyEmpApplicantReq');
 Route::get('applicationsToThisJob/{id}', 'EmployerController@applicationsToThisJob');
 
+Route::get('viewEmployer/{id}', 'EmployerController@viewEmployer')->name('viewEmployer');
 
 //get the requested applicants by employers from the frontpage
 Route::get('emprequest','AdminController@empRequest')->name('emprequest');

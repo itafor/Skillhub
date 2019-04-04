@@ -91,7 +91,7 @@
 @else
 <h4>Nothing matched your search</h4>
 @endif
-{{$users->links()}}
+<span class="offset-9">{{$users->links()}}</span>
   </div>
 </section>
     <!-- end page content -->
