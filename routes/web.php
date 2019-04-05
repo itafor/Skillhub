@@ -40,7 +40,7 @@ Route::get('add-skill', 'UserController@getSkill')->name('add-skill');
 Route::get('profilePicture', function () {
     return view('menialJobSeekers.profilePicture');
 });
-
+Route::get('/download/{id}','UserController@downloadFile')->name('downloadpix');
 Route::get('imageProof', function () {
     return view('menialJobSeekers.imageProof');
 });
@@ -67,6 +67,9 @@ Route::get('deleteSkill/{id}', 'UserController@deleteSkill')->name('deleteSkill'
 
 Route::post('profilePicture', 'UserController@profilePicture')->name('profilePicture');
 Route::post('updateProfilePicture', 'UserController@updateProfilePicture')->name('updateProfilePicture');
+
+Route::post('add-CV', 'UserController@addCV')->name('addCV');
+Route::get('getCV', 'UserController@getMyCV')->name('getCV');
 
 Route::get('viewSkills', 'UserController@viewSkills')->name('viewSkills');
 

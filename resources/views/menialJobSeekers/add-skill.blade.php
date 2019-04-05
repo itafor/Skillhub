@@ -32,7 +32,19 @@
       <label for="validationCustom01">Skill name</label>
       <input type="text" name="skillname" class="form-control" placeholder="Enter skill e.g. web developer"  required>
     </div>
-   
+
+    <div class="col-md-6 mb-4">
+      <label for="validationCustom01">Skill name</label>
+      <select type="text" name="skill_level" class="form-control" placeholder="Enter Skill Level" required>
+        <option value="0">Select Skill Level</option>
+        <option value="20">20% of 100%</option>
+        <option value="40">40% of 100%</option>
+        <option value="60">60% of 100%</option>
+        <option value="80">80% of 100%</option>
+        <option value="100">100% of 100%</option>
+      </select>  
+    </div>
+
   </div>
   <div class="form-row">
     <div class="col-md-12 mb-3">

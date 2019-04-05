@@ -38,7 +38,18 @@
   <div class="form-row">
     <div class="col-md-6 mb-4">
       <label for="validationCustom01">Skill name</label>
-     <textarea name="skillname" class="form-control" cols="10">{{$editskill->name}}</textarea>
+     <input type="text"  name="skillname" class="form-control" value="{{$editskill->name}}"> 
+    </div>
+     <div class="col-md-6 mb-4">
+      <label for="validationCustom01">Skill Level</label>
+     <select type="text" name="skill_level" class="form-control" required>
+        <option value="{{$editskill->skill_level}}">{{$editskill->skill_level}}%  of 100%</option>
+        <option value="20">20% of 100%</option>
+        <option value="40">40% of 100%</option>
+        <option value="60">60% of 100%</option>
+        <option value="80">80% of 100%</option>
+        <option value="100">100% of 100%</option>
+      </select>
     </div>
   </div>
   <div class="form-row">

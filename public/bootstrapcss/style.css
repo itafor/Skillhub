@@ -127,9 +127,8 @@ height: 33px;
 }
 /*customer color*/
 .main-color-bg {
-  background-color: #e74c3c !important;
-  border-color: #c0392b !important;
-  color: #ffffff !important;
+  background-color: #fffff !important;
+  color: #000 !important;
 }
 /*Remove Caret from drodown*/
 .dropdown-toggle:after { content: none }

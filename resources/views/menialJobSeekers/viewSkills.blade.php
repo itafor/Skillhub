@@ -32,7 +32,8 @@
                <table class="table table-striped table-hover  table-bordered"  >
                  <tr>
                    <th>SKILL NAME</th>
-                   <th>DESCRIPTION</th>
+                   <th>SKILL LEVEL</th>
+                    <th>DESCRIPTION</th>
                    <th>DATE ADDED</th>
                    <th colspan="2">ACTION</th>
                   
@@ -41,6 +42,9 @@
                 
                  <tr>
                    <td>{{$skill->name}}</td>
+                   <td>
+  <div class="skill-bar"> <div class="progress-bar" style="width: {{$skill->skill_level}}%;">{{$skill->skill_level}}%</div></div>
+                   </td>
                    <td>{{$skill->description}}</td>
                    <td>{{ Carbon\carbon::createFromTimestamp(strtotime($skill->created_at))->diffForHumans()}}</td>
 

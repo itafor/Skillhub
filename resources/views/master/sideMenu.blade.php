@@ -32,7 +32,7 @@
 
          
             
-        <li class='list-group-item'>  <a href=''> CV  </a></li>
+        <li class='list-group-item'>  <a href='/getCV'> CV  </a></li>
 
         <li class='list-group-item'> <a href=''> My CV  </a></li>
 

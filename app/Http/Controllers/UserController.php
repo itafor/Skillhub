@@ -149,7 +149,8 @@ public function viewSkills() {
   public function addSkill(Request $request) {
     $this->validate($request,[
         'skillname' => 'required|max:255|string',
-        'skilldescription' => 'required|max:255|string'
+        'skilldescription' => 'required|max:255|string',
+        'skill_level' => 'required',
     ]);
         $userID = Auth::user()->id;
         if(auth::check()){
@@ -157,10 +158,11 @@ public function viewSkills() {
        $skill = new Skill();
        $skill->name =  $request->skillname;
        $skill->description   = $request->skilldescription;
+       $skill->skill_level   = $request->skill_level;
        $skill->user_id = auth()->user()->id;
        $skill->save();
     if ($skill) {
-       return back()->with('success','You have successfully added a new Skill');
+       return back()->with('success',' new Skill added successfully');
     } else {
         return back()->withInput()->with('errors','Error adding new skill');
         }
@@ -175,6 +177,7 @@ return view('auth.login');
         ->update([
             'name'=>$request->input('skillname'),
             'description'=>$request->input('skilldescription'),
+            'skill_level'=>$request->input('skill_level'),
         ]);
 
         if($skills){
@@ -189,6 +192,9 @@ return view('auth.login');
 
     public function updateProfilePicture(Request $request)
     {
+      $this->validate($request,[
+          'profileImage' => 'required|max:5000|mimes:jpg,jpeg,png,bmp,gif'
+      ]);
         $fileName = $request->profileImage->getClientOriginalName();
            $request->profileImage->move(public_path('upload'),$fileName);
             $users = User::WHERE('id', Auth::user()->id)
@@ -200,6 +206,27 @@ return view('auth.login');
         }
         return back()->withInput()->with('errors','Profile Picture update failed');
     }
+
+ public function addCV(Request $request)
+    {
+      $this->validate($request,[
+          'cv' => 'required|max:5000|mimes:pdf,doc,docx'
+      ]);
+        $cvName = $request->cv->getClientOriginalName();
+           $request->cv->move(public_path('upload'),$cvName);
+            $users = User::WHERE('id', Auth::user()->id)
+            ->update([
+            'mycv'=>$cvName
+            ]);
+        if($users){
+         return back()->with('success','CV added successfully');
+        }
+        return back()->withInput()->with('errors','An error occured while adding CV,try again');
+    }
+  
+   public function getMyCV() {
+      return view('menialJobSeekers.addcv');
+        }
 
    public function imageProof() {
         return view('menialJobSeekers.imageProof');
@@ -412,4 +439,5 @@ return back()->with('errors',' Selected skill could not deleted');
 return back()->with('errors',' Selected applicant could not deleted');
     
     }
+
 }
