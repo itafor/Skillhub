@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Notifications\VerifyEmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,7 +69,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+         $user = User::create([
             'name' => $data['name'],
             'sex' => $data['sex'],
             'phone' => $data['phone'],
@@ -76,8 +77,15 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'token' => str_random(25),
         ]);
+
+        //$user->sendVerificationEmail();
+         
+        return $user;
     }
+
+
     public function roles(Request $request) {
     $roles= DB::table('roles')
             ->get();

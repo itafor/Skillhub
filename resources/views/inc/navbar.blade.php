@@ -43,13 +43,12 @@
        <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
     </span>
      <div class="dropdown-content" style="margin-left: -100px; border-radius: 20px; padding-left: -80px;">
-       
-        <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-user"></i> My Profile</a>
+       <a href="/my-profile/{{auth::user()->id}}"  class="dropdown-item" ><i class="fa fa-user"></i> My Profile</a> 
+        <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
        <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
-       <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                 <i class="fa fa-list-alt"></i>{{ __('Logout') }}</a>
+                 <i class="fa fa-list-alt"></i> {{ __('Logout') }}</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>
@@ -78,7 +77,12 @@
   <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
         </span>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-user"></i> My Profile</a>
+
+
+   <a href="/my-profile/{{auth::user()->id}}"  class="dropdown-item" ><i class="fa fa-user"></i> My Profile</a> 
+
+     <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
+         
          <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
       </div>
   </div>

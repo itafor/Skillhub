@@ -25,7 +25,7 @@ class UserController extends Controller
     $this->closeJob();
      $users = User::where('role','Applicant')
       ->orderBy('created_at','desc')
-       ->paginate(6);
+       ->paginate(21);
       return view('menialJobSeekers.frontpage',compact(['users']));
 	}
 
@@ -37,10 +37,25 @@ public function searchskill(Request $request) {
    ->where('skills.name','like','%'.$request->searchskill.'%')
    ->orderBy('users.created_at','desc')
    ->groupBy('skills.user_id')
-   ->paginate(40);
+   ->paginate(21);
   return view('menialJobSeekers.frontpage',compact(['users']));
 }
 
+public function fetchskill() {
+    $this->closeJob();
+     $users = User::where('role','Applicant')
+      ->orderBy('created_at','desc')
+       ->paginate(21);
+      return view('menialJobSeekers.frontpage',compact(['users']));
+  }
+  
+  public function fetchLocation() {
+    $this->closeJob();
+     $users = User::where('role','Applicant')
+      ->orderBy('created_at','desc')
+       ->paginate(21);
+      return view('menialJobSeekers.frontpage',compact(['users']));
+  }
 
 public function searchlocation(Request $request)  {
   $users=DB::table('users')
@@ -48,7 +63,7 @@ public function searchlocation(Request $request)  {
     ->where('role','applicant')
     ->orwhere('lga','like','%'.$request->searchlocation.'%')
       ->orderBy('created_at','desc')
-   ->paginate(40);
+   ->paginate(21);
 
       return view('menialJobSeekers.frontpage',compact(['users']));
 
@@ -149,7 +164,6 @@ public function viewSkills() {
   public function addSkill(Request $request) {
     $this->validate($request,[
         'skillname' => 'required|max:255|string',
-        'skilldescription' => 'required|max:255|string',
         'skill_level' => 'required',
     ]);
         $userID = Auth::user()->id;
@@ -210,7 +224,7 @@ return view('auth.login');
  public function addCV(Request $request)
     {
       $this->validate($request,[
-          'cv' => 'required|max:5000|mimes:pdf,doc,docx'
+          'cv' => 'required|max:5000|mimes:pdf,doc,docx,txt'
       ]);
         $cvName = $request->cv->getClientOriginalName();
            $request->cv->move(public_path('upload'),$cvName);
@@ -225,8 +239,18 @@ return view('auth.login');
     }
   
    public function getMyCV() {
-      return view('menialJobSeekers.addcv');
+    //$userId = Crypt::decrypt($id);
+     $users = User::where('id',auth::user()->id)->first();
+      return view('menialJobSeekers.addcv',compact('users'));
         }
+
+  public function viewProfile($id) {
+   //$userId = Crypt::decrypt($id);
+      $users = User::where('id',$id)->first();
+      return view('menialJobSeekers.jobseekerinfo',compact(['users']));
+        }
+
+       
 
    public function imageProof() {
         return view('menialJobSeekers.imageProof');
@@ -271,6 +295,9 @@ return view('auth.login');
 
 public function storeImageProof(Request $request)
     {
+      $this->validate($request,[
+        'imageProof' => 'required|max:2000|mimes:jpg,jpeg,png,gif'
+      ]);
         $fileName = $request->imageProof->getClientOriginalName();
         $request->imageProof->move(public_path('upload'),$fileName);
         $imageproofs = new  Imageproof();
@@ -303,7 +330,7 @@ public function storeVideoProof(Request $request)
     {
       $this->validate($request,[
         'videoname'=>'required|max:255',
-        'videoProof'=>'required|max:6000|mimetypes:video/mp4'
+        'videoProof'=>'required|max:8000|mimetypes:video/mp4'
       ]);
       
         $fileName = $request->videoProof->getClientOriginalName();
@@ -373,7 +400,7 @@ public function checkOnlineProofs($id) {
     $data = DB::table('state_lgas')
     ->where($select,$value)
     ->groupBy($dependent)->get();
-    $output = '<option value=""> Select'.ucfirst($dependent).'</option>';
+    $output = '<option value=""> Select  '.ucfirst($dependent).'</option>';
      foreach($data as $row){
     $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
 
@@ -440,4 +467,47 @@ return back()->with('errors',' Selected applicant could not deleted');
     
     }
 
+//autosearch state
+function fetchBystate(Request $request){
+     if($request->get('query'))
+     {
+      $query = $request->get('query');
+      $data = DB::table('users')
+    ->where('state','LIKE',"%{$query}%")
+    ->where('role','applicant')
+    ->groupBy('state')
+    ->get();
+    $output = '<ul class="dropdown-menu" 
+    style="display: block; 
+    position: absolute; z-index: 1; width:300px; padding-left:20px; margin-left:10px;">';
+    foreach ($data as $row) {
+$output.='<li><a href="#">'.$row->state.'</a></li>';
+    }
+   $output .='</ul>';
+   echo $output;
+    ;
+    }
+   }
+//autosearch skills
+   function fetchBySkill(Request $request){
+     if($request->get('query2'))
+     {
+      $query2 = $request->get('query2');
+      $users = User::join('skills','users.id','=','skills.user_id')
+        ->selectRaw('skills.name, skills.description, skills.created_at,
+       users.sex,users.id,users.phone,users.address,users.photo,users.state,users.lga,users.created_at,users.email, users.about,users.qualification
+        ')
+   ->where('skills.name','like',"%{$query2}%")
+    ->get();
+    $output = '<ul class="dropdown-menu" 
+    style="display: block; 
+    position: absolute; z-index: 1; width:300px; padding-left:20px; margin-left:10px;">';
+    foreach ($users as $row) {
+$output.='<li><a href="#">'.$row->name.'</a></li>';
+    }
+   $output .='</ul>';
+   echo $output;
+    ;
+    }
+   }
 }

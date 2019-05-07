@@ -1,5 +1,5 @@
 html, body {
-  background: #f1f1f1;
+  background: #ffffff;
   height: 100%;
   font-family: sans-serif;
   color:#3c3939;
@@ -15,9 +15,13 @@ html, body {
   background: #fff;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0,0.5);
 }
+/*.logo{
+ margin-top: 50px;
+}*/
 .image-container{
   position: relative;
 }
+
 .info{
  color: #4b4fe2;
  margin-right: 16px;
@@ -219,22 +223,20 @@ background: #ffffff;
  
 }
 .hireMe{
-  
   text-align: center;
 }
 .hireMe a{
   text-align: center;
   color: #ffffff;
   text-decoration: none;
-  font-size: 24px;
 }
 .card:hover{
 background-color: #ffffff;
 }
 .card-img-top{
-  padding: 20px;
-  height: 250px;
-  width: 250px;
+  padding: 0px;
+  height: 120px;
+  width: 120px;
   border-radius: 100%;
 }
 .checkimageProofs{
@@ -257,7 +259,7 @@ ul {
   list-style-type: none;
 }
 .applicantsList {
-  padding: 10px 50px 50px 50px;
+  padding: 10px 300px 10px 300px;
 }
 .mobileview{
   display: none;

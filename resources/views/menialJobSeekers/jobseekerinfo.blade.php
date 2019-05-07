@@ -6,7 +6,9 @@
 <section id="breadcrum">
   <div class="container">
     <ol class="breadcrum">
-      <a href="">Dashboard / Applicants</a>
+      @if(auth::user())
+      <a href="/admindashboard" style="width: 100px; height:70px; font-size: 20px; border-radius: 5px;  color: #ffffff;">Dashboard</a>
+      @endif
     </ol>
   </div>
 </section>
@@ -22,13 +24,15 @@
        <div class="col-md-12">
         <!-- site overview -->
            <div class="card">
-           <h5 class="card-header main-color-bg" style="color: #fff;">Applicant's details</h5>
+           <h5 class="card-header main-color-bg" style="color: #fff;"> 
+           <?= auth::user() ? 'My Profile' : 'Applicant details' ?>
+         </h5>
         <div class="card-body ">
                 
 <div class="col-md-4 pull-left jobseekerinfo ">
 <p class="text-center"><b><i class="fa fa-asterisk info"></i>Info</b> </p>
 <div class="image-container">
-<img src="/upload/{{$users->photo}}" alt="Applicants profile picture" class="profile-image">
+<img src="/upload/{{$users->photo == '' ? 'female.png' : $users->photo}}" class="profile-image">
 <div class="title">
 <h2>{{$users->name}}</h2>
 </div>
@@ -38,7 +42,9 @@
 <p><i class="fa fa-envelope info"></i> {{$users->email}} </p>
 <p><i class="fa fa-intersex info"></i> {{$users->sex}} </p>
  <p><i class="fa fa-map-marker info"></i> {{$users->state}}</p>
- <p><i class="fa fa-download info"></i><a href="/upload/{{$users->photo}}" download="{{$users->photo}}">CV</a> </p>
+@if($users->mycv)
+ <p><i class="fa fa-download info"></i><a href="/upload/{{$users->mycv}}" download="{{$users->mycv}}">CV</a> </p>
+ @endif
  <hr>
 </div>
 </div>
@@ -51,7 +57,7 @@
   <table width="100%" class="table table-bordered">
     <tr>
       <th>Skill</th>
-      <th>Level</th>
+      <th> Experience Level</th>
     </tr>
     @foreach ($users->skills as $skill)
      <tr>

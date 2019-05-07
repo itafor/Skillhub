@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Notifications\VerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','address','photo','sex','role','about','qualification'
+        'name', 'email', 'password','phone','address','photo','sex','role','about','qualification','mycv','token'
     ];
 
     /**
@@ -67,7 +67,18 @@ class User extends Authenticatable
      public function jobapplications(){
         return $this->hasMany('App\Jobapplication');
     }
-
+// returns true if the user is verified
    
+public function verified(){
+    return $this->token == null;
+}
+
+//send the user a verification email
+public function sendVerificationEmail(){
+
+    $this->notify(new VerifyEmail($this));
+
+}
+
 
 }

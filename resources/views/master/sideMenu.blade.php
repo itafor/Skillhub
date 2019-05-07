@@ -1,7 +1,16 @@
+
+  
+   
+
  <div class="col-md-3">
-        <ul class="list-group">
-           <!-- <li class="list-group-item active main-color-bg"><i class="fa fa-cog"></i> Dashboard</li> -->
-          <!--   Admin  menus -->
+ <div class="dropdown create">
+           <span class="dropdown-toggle" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+        </span>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: 120px;">
+
+        <ul class="list-group" >
+         
           <?php $totalImageProof = count(auth::user()->imageproofs)?>
           <?php $totalReq = count(auth::user()->employers)?>
          
@@ -22,19 +31,9 @@
             
            <?= auth::user()->role == 'Applicant' ? "
             <li class='list-group-item'>  <a href='/sharedjobs'> Shared Jobs  </a> </li>
+            <li class='list-group-item'> <a href='/viewSkills'> My Skills </a></li>
+            <li class='list-group-item'>  <a href='/getCV'> CV  </a></li>
 
-
-               <li class='list-group-item'> <a href='/viewSkills'> My Skills </a></li>
-
-           <li class='list-group-item'> <a href=''> Add Gurantor  </a></li>
-
-           <li class='list-group-item'>  <a href=''> Gurantors <span class='badge badge-secondary' ></span> </a></li>
-
-         
-            
-        <li class='list-group-item'>  <a href='/getCV'> CV  </a></li>
-
-        <li class='list-group-item'> <a href=''> My CV  </a></li>
 
         <h4 style='color:#ffffff; background:#000000;'>Proof of Skills</h4>
           <li class='list-group-item'> <a href='/websiteProof'>Add websiteProof URL</a></li> 
@@ -54,4 +53,8 @@
            " : '' ?>
 
     </ul>
+
+       </div>
+  </div>
+
  </div>

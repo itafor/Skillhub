@@ -24,18 +24,25 @@
        <div class="col-md-9">
 
 <div class="card">
-           <h5 class="card-header main-color-bg" style="color: #fff;">Upload Profile Picture</h5>
+           <h5 class="card-header main-color-bg" style="color: #fff;">CV</h5>
         <div class="card-body">
 
         
       <!--POST SKILL FORM STARTS-->
 <form  action="{{route('addCV')}}" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_token" value="{{csrf_token()}}">
+  <div class="form-group row">
      <div class="input-group mb-3 col-md-6">
       <input type="file" class="form-control" name="cv" required="">
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit">Save CV</button>
       </div>
+    </div>
+    <div class="col-md-3">
+      @if($users->mycv)
+      <p><i class="fa fa-download info"></i><a href="/upload/{{$users->mycv}}" download="{{$users->mycv}}">My CV</a> </p>
+      @endif
+    </div>
     </div>
 </form>
 

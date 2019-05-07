@@ -1,20 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Route::get('/', function () {
 
 //     return view('menialJobSeekers.frontpage');
 // });
+
 Route::get('main', function () {
     return view('master.main');
 });
@@ -24,14 +14,22 @@ Route::get('postjob', function () {
 });
 Route::get('jobseekerinfo/{id}', 'UserController@jobseekerinfo')->name('jobseekerinfo');
 
+
 Route::get('phpinfo', function () {
     return view('menialJobSeekers.phpinfo');
 });
+Route::get('/autocomplete/fetch', 'UserController@fetchBystate')->name('autocomplete.fetch');
+
+
+Route::get('/autocomplete/fetchskill', 'UserController@fetchBySkill')->name('autocomplete.fetchskill');
+
 Route::get('/', 'UserController@index');
 
 Route::post('/searchskill', 'UserController@searchskill')->name('searchskill');
+Route::get('/searchskill', 'UserController@fetchskill')->name('fetchskill');
 
 Route::post('/searchlocation', 'UserController@searchlocation')->name('searchlocation');
+Route::get('/searchlocation', 'UserController@fetchLocation')->name('fetchLocation');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -71,6 +69,7 @@ Route::post('updateProfilePicture', 'UserController@updateProfilePicture')->name
 Route::post('add-CV', 'UserController@addCV')->name('addCV');
 Route::get('getCV', 'UserController@getMyCV')->name('getCV');
 
+Route::get('my-profile/{id}', 'UserController@viewProfile')->name('myProfile');
 Route::get('viewSkills', 'UserController@viewSkills')->name('viewSkills');
 
 Route::get('viewImageProof', 'UserController@viewImageProof')->name('viewImageProof');
@@ -127,8 +126,10 @@ Route::get('page',function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('verify/{token}','VerifyController@verify')->name('verify');
+
 Route::get('register','Auth\RegisterController@roles')->name('register');
-Route::POST('dynamicdependent', 'UserController@fetch')->name('dynamicdependent.fetch');
+Route::get('dynamicdependent', 'UserController@fetch')->name('dynamicdependent.fetch');
 
 Route::get('checkvideoproof/{id}', 'UserController@checkVideoProofs')->name('checkvideoproof');
 Route::get('checkimageproof/{id}', 'UserController@checkImageProofs')->name('checkimageproof');
@@ -142,7 +143,5 @@ Route::post('saveRequest','MailController@saveRequest')->name('saveRequest');
 
 Route::get('sendbasicemail','MailController@basic_email');
 Route::get('gethtmlemail','MailController@get_email');
-
-Route::get('applicanttohire/{id}','AdminController@applicantRequested')->name('applicanttohire');
 
 Route::get('deleteReq/{id}','AdminController@deleteReq')->name('deleteReq');

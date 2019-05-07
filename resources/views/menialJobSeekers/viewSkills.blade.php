@@ -24,8 +24,8 @@
  <div class="card">
  
  <div class="card-header main-color-bg">
- <h6  style="color: #fff; float:left;"> MY SKILLS</h6>
- <h6 style="float:right;" > <a style="color: #fff;" href="/add-skill"  data-toggle="tooltip" rel="tooltip" data-placement="top" title="Add Skill"><i class="icon fa fa-plus"></i></a></h6>
+ <h6  style="color: #000; float:left;"> MY SKILLS</h6>
+ <h6 style="float:right;" > <a style="color: #fff;" href="/add-skill"  data-toggle="tooltip" rel="tooltip" data-placement="top" title="Add Skill" class="btn btn-primary btn-sm"><i class="icon fa fa-plus"></i></a></h6>
  </div>
         <div class="card-body">
                   @if(count($skills) > 0)

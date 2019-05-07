@@ -9,9 +9,11 @@
 
     <title>Admin Area | Dashboard </title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+  
+    <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-    <!-- Bootstrap core CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
  <link href="{{ asset('bootstrapcss/style.css') }}" rel="stylesheet">
  <link href="{{ asset('bootstrapcss/jquery.datetimepicker.min.css') }}" rel="stylesheet">
@@ -50,6 +52,7 @@
   
 </script>
 
+<!-- auto select state and lga -->
 <script type="text/javascript">
     $(document).ready(function(){
         $('#sendSMS').hide();
@@ -83,6 +86,68 @@ $('#cancelSMS').click(function(){
 
     $('#datetimepicker').datetimepicker();
     </script>
+<!-- auto search by location -->
+    <script>
+$(document).ready(function(){
+  $('#searchlocation').keyup(function(){
+    var searchlocat=document.querySelector('#searchlocation')
+    console.log(searchlocat.value)
+    var query=$(this).val();
+    if(query!==''){
+      var _token = $('input[name="_token"').val();
+      $.ajax({
+        url:"{{ route('autocomplete.fetch')}}",
+        method:"POST",
+        data:{query:query, _token:_token},
+        success:function(data){
+          console.log(data)
+          $('#locationList').fadeIn();
+          $('#locationList').html(data);
+        }
+      })
+    }
+  }); 
+
+  $(document).on('click', 'li', function(e){  
+        $('#searchlocation').val($(this).text());  
+        $('#locationList').fadeOut();  
+    });  
+ 
+});
+
+</script>
+
+<!-- auto search by skills -->
+    <script>
+$(document).ready(function(){
+  $('#searchskill').keyup(function(){
+    var searchskills=document.querySelector('#searchskill')
+    
+    var query2=$(this).val();
+    if(query2!==''){
+      var _token = $('input[name="_token"').val();
+      $.ajax({
+        url:"{{ route('autocomplete.fetchskill')}}",
+        method:"POST",
+        data:{query2:query2, _token:_token},
+        success:function(user){
+          console.log(user)
+          $('#skillList').fadeIn();
+          $('#skillList').html(user);
+        }
+      })
+    }
+  }); 
+
+  $(document).on('click', 'li', function(e){  
+        $('#searchskill').val($(this).text());  
+        $('#skillList').fadeOut();  
+    });  
+ 
+});
+
+</script>
+
 
 <script>
       CKEDITOR.replace( 'editor1' );

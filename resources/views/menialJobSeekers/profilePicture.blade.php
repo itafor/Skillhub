@@ -32,21 +32,14 @@
 <form  action="{{route('updateProfilePicture')}}" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_token" value="{{csrf_token()}}">
   
-  
- 
-  <div class="form-row">
-
-   <div class="form-row">
-    
-     <div class="col-md-6 mb-3">
-      <label for="validationCustom04">Profile Picture</label>
+   <div class="input-group mb-3 col-md-6">
+      <!-- <label for="validationCustom04">Profile Picture</label> -->
       <input type="file" class="form-control" name="profileImage" >
+      <div class="input-group-append">
+  <button class="btn btn-primary" type="submit">Save</button>
+      </div>
     </div>
 
-  </div>
-
-  </div>
-  <button class="btn btn-primary" type="submit">Update Profile Picture</button>
 </form>
 
 </div>

@@ -34,13 +34,18 @@
     </div>
 
     <div class="col-md-6 mb-4">
-      <label for="validationCustom01">Skill name</label>
+      <label for="validationCustom01">Experience Level</label>
       <select type="text" name="skill_level" class="form-control" placeholder="Enter Skill Level" required>
         <option value="0">Select Skill Level</option>
+        <option value="10">10% of 100%</option>
         <option value="20">20% of 100%</option>
+        <option value="30">30% of 100%</option>
         <option value="40">40% of 100%</option>
+        <option value="50">50% of 100%</option>
         <option value="60">60% of 100%</option>
+        <option value="70">70% of 100%</option>
         <option value="80">80% of 100%</option>
+        <option value="90">90% of 100%</option>
         <option value="100">100% of 100%</option>
       </select>  
     </div>
@@ -49,7 +54,7 @@
   <div class="form-row">
     <div class="col-md-12 mb-3">
       <label>Describe your skill</label>
-    <textarea name="skilldescription" class="form-control"  placeholder="I am a good mathematics teacher with outstanding record" required="required"></textarea>
+    <textarea name="skilldescription" class="form-control"  placeholder="I am a good mathematics teacher with outstanding record" ></textarea>
     </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
