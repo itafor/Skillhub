@@ -7,7 +7,7 @@
   <div class="container">
     <ol class="breadcrum">
       @if(auth::user())
-      <a href="/admindashboard" style="width: 100px; height:70px; font-size: 20px; border-radius: 5px;  color: #ffffff;">Dashboard</a>
+      <a href="/admindashboard" style="width: 100px; height:70px; font-size: 20px; border-radius: 5px;  color: #ffffff;">Home</a>
       @endif
     </ol>
   </div>
@@ -41,7 +41,9 @@
 <p><i class="fa fa-phone info"></i> {{$users->phone}} </p>
 <p><i class="fa fa-envelope info"></i> {{$users->email}} </p>
 <p><i class="fa fa-intersex info"></i> {{$users->sex}} </p>
+@if($users->state)
  <p><i class="fa fa-map-marker info"></i> {{$users->state}}</p>
+  @endif
 @if($users->mycv)
  <p><i class="fa fa-download info"></i><a href="/upload/{{$users->mycv}}" download="{{$users->mycv}}">CV</a> </p>
  @endif

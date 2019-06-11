@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Welcome to myTunes</title>
 </head>
-<body>
+<body> -->
 
 
   <!-- Showcase & Nav -->
-  <div id="showcase">
+  <!-- <div id="showcase">
     <header>
       <nav class='cf'>
         <ul class='cf'>
@@ -33,21 +33,21 @@
             </li>
           <li>
               <a  href="#">Services</a>
-            </li>
+            </li> -->
         <!-- </ul> -->
 
 
            <!-- <ul class="navbar-nav navbar-right"> -->
-              @guest
+              <!-- @guest
             <li class="pull-right">
               <a  href="{{ route('login') }}">Login</a>
             </li>
             <li >
               <a  href="{{ route('register') }}">Signup</a>
             </li>
-            @else
+            @else -->
             <!-- usermenu start -->
-            <li >
+            <!-- <li >
               <span  style="margin-right: 20px;">{{auth::user()->role}}</span>
             </li>
             <li >
@@ -61,9 +61,9 @@
          <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
           <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Add Post</a>
       </div>
-  </div>
+  </div> -->
             </li> <!-- usermenu end -->
-            <li>
+            <!-- <li>
               <a  href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                  {{ __('Logout') }}</a>
@@ -92,7 +92,7 @@
      
  @yield('content') 
 
- @include('master.footer') 
+ @include('master.footer')  -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -103,7 +103,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -148,9 +148,9 @@ $('#cancelSMS').click(function(){
 
 <script>
       CKEDITOR.replace( 'editor1' );
-    </script>
+    </script> -->
 
-
+<!-- 
 
     <script type="text/javascript">
 
@@ -178,9 +178,9 @@ alert('You can not remove last row');
         }
     });
 
-    </script>
+    </script> -->
 
-
+<!-- 
     <script type="text/javascript">
   document.getElementById('searchSkillForm').addEventListener('submit',checkInput);
 
@@ -208,8 +208,8 @@ alert('You can not remove last row');
   }
   return true;
   }
-</script>
-
+</script> -->
+<!-- 
 
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -222,4 +222,4 @@ $(function() {
 </script>
 </body>
 
-</html>
+</html> -->

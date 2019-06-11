@@ -10,7 +10,8 @@
           <?php  $employers = count($employers)?>
           <?php  $applicants = count($applicants)?>
           <?php  $sharedjobs = count($sharedjobs)?>
-
+         <?php $id = auth::user()->id ;?>
+        
             <?= auth::user()->role == 'Admin' ? 
            "<div class='card'>
 
@@ -123,7 +124,7 @@
               <div class='well dash-box'>
                     <h2> <i class='fa fa-pencil'></i> <i class='fa fa-user'></i> </h2>
                     
-          <a href='/editProfile'> <h4> Profile</h4> </a>
+          <a  href='/my-profile/$id'> <h4> Profile</h4> </a>
 
                   </div>
               </div>

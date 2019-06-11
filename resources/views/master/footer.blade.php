@@ -3,8 +3,8 @@
   <footer>
     <div class="container">
       <div class="footer-cols">
-        <ul>
-          <li>Shop & Learn</li>
+        <!-- <ul>
+          <li>Sign up</li>
           <li>
             <a href="#">Music</a>
           </li>
@@ -20,8 +20,8 @@
           <li>
             <a href="#">Gift Cards</a>
           </li>
-        </ul>
-
+        </ul> -->
+<!-- 
         <ul>
           <li>Orange Store</li>
           <li>
@@ -39,8 +39,8 @@
           <li>
             <a href="#">Order Status</a>
           </li>
-        </ul>
-
+        </ul> -->
+<!-- 
         <ul>
           <li>Education & Business</li>
           <li>
@@ -58,9 +58,9 @@
           <li>
             <a href="#">Jobs</a>
           </li>
-        </ul>
+        </ul> -->
 
-        <ul>
+        <!-- <ul>
           <li>About Orange</li>
           <li>
             <a href="#">Newsroom</a>
@@ -77,11 +77,11 @@
           <li>
             <a href="#">Contact Orange</a>
           </li>
-        </ul>
+        </ul> -->
 
       </div>
     </div>
     <div class="footer-bottom text-center">
-      Copyright &copy; 2018 Myskillhub
+      Copyright &copy; 2019 Myskillhub
     </div>
   </footer>

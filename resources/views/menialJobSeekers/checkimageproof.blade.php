@@ -22,12 +22,12 @@
         <!-- site overview -->
 
            <div class="card">
-           <h5 class="card-header main-color-bg" style="color: #fff;">Do you need  {{$userSex->sex == 'Male' ? 'his' : 'her'}} service? Contact us on 098975642  
-  OR
+           <h5 class="card-header main-color-bg" style="color: #fff;">Do you need  {{$userSex->sex == 'Male' ? 'his' : 'her'}} service? Contact us on 07065907948  
+<!--   OR
 
-  <div class="hireMe btn btn-primary"><a href="#" ">{{$userSex->status == 'Available'?  $userSex->sex == 'Male' ? 'Employ him' : 'Employ her'  : 'EMPLOYED'}} </a> </div>
+  <div class="hireMe btn btn-primary"><a href="/jobseekerinfo" ">{{$userSex->status == 'Available'?  $userSex->sex == 'Male' ? 'Employ him' : 'Employ her'  : 'EMPLOYED'}} </a> </div>
            </h5>
- 
+  -->
 
         <div class="card-body">
               

@@ -1,4 +1,4 @@
-@extends('master.dashboard')
+@extends('master.firstNavBar')
 
 @section('content')
  <header id="header">

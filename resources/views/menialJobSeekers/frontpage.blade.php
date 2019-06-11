@@ -1,4 +1,8 @@
-@extends('master.dashboard')
+
+
+
+@extends('master.firstNavBar')
+
 @section('content')
 <div id="showcase">
 <div class="section-main container">
@@ -49,7 +53,7 @@
 @if(Auth::user())
 <section id="breadcrum">
   <div class="container">
-      @include('master.remainder')
+      
   </div>
 </section>
 @endif
@@ -69,7 +73,7 @@
 <?php $userId = $object->id; 
      $cryptId = Crypt::encrypt($userId);       
 ?>
-  <li> <a href="/jobseekerinfo/{{$cryptId}}" class="text text-danger" style="margin-left: -60px;">View Detail</a> </li>
+  <li> <a href="/jobseekerinfo/{{$cryptId}}" class="text text-danger" style="margin-left: -60px;">View Detail <i class="fa fa-arrow-right"></i></a> </li>
  
       <span style="margin-left: -20px;">Status: <b>{{$object->status == 'Available'? 'Available' : 'Hired'}}</b></span><br>
       </ul>
@@ -86,6 +90,7 @@
 @endif
 <span class="pagination">{{$users->links()}}</span>
   </div>
+
 </section>
     <!-- end page content -->
 @include('master.footer') 
