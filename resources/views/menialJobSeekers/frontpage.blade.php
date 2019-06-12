@@ -65,7 +65,7 @@
 <div class="card-columns" >
 
  @foreach($users as $object)
- <div class="card text-center">
+ <div class="card " style="width: 100%">
     <img class="card-img-top" src="/upload/{{$object->photo == '' ? 'female.png' : $object->photo}}">
     <div class="card-body">
        <span style="font-family: roboto; font-size: 20px;">{{$object->name}}</span><br>

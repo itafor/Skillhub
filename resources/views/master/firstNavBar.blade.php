@@ -7,12 +7,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Admin Area | Dashboard </title>
+    <title>MySkillsHub| skills </title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
   
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/navbar-top-fixed.css">
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
  <link href="{{ asset('bootstrapcss/style.css') }}" rel="stylesheet">
@@ -23,251 +25,87 @@
    
 	<title>Nav Bar</title>
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-	<style type="text/css">
-		/**{
-			margin: 0px;
-			padding: 0px;
-			box-sizing: border-box;
-		}*/
-		nav{
-      padding-top: 7px;
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-			min-height: 8vh;
-			background-color: #000;
-			font-family: 'Poppins', sans-serif;
-		}
-		.logo{
-			color: rgb(226,226,226);
-			text-transform: uppercase;
-			letter-spacing: 5px;
-			font-size: 20px;
-		}
-		.nav-links{
-			display: flex;
-			justify-content: space-around;
-			width: 50%;
-		}
-		.nav-links li{
-			list-style: none;
-
-		}
-		.nav-links a{
-			color: rgb(226,226,226);
-			text-decoration: none;
-			/*letter-spacing: 1px;*/
-			font-weight: bold;
-			font-size: 14px;
+	
 
 
-		}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+ <link href="{{ asset('bootstrapcss/style.css') }}" rel="stylesheet">
+ <link href="{{ asset('bootstrapcss/jquery.datetimepicker.min.css') }}" rel="stylesheet">
 
-   /* .nav-links li a{
-     margin-right: 5px;
-
-    }*/
-
-		.burger div{
-			width: 25px;
-			height: 2px;
-			margin: 5px;
-			background-color: rgb(226,226,226);
-			transition: all 0.3s ease;
-			}
-			.burger{
-				display: none;
-			}
-
-		   @media screen and (max-width: 1024px){
-				.nav-links{
-					width: 60%;
-				}
-			}
-
-			@media screen and (max-width: 500px){
-				body{
-					overflow-x: hidden;
-				}
-				.nav-links{
-					position: absolute;
-					right: 0px;
-					height: 92vh;
-					top: 8vh;
-					background-color: #000000;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					width: 30%;
-					transform: translateX(100%);
-					transition: transform 0.5s ease-in;
-          z-index: 1;
-				
-				}
-				.nav-links li{
-					opacity: 0;
-				}
-				.nav-links li a{
-					
-				}
-				.burger{
-					display: block;
-					cursor: pointer;
-				}
-				
-			}
-			.nav-active{
-					transform: translateX(0%);
-				}
-
-				@keyframes navLinkFade{
-
-					from{
-						opacity: 0;
-						transform: translateX(50px;);
-					}
-
-					to{
-						opacity: 1;
-						transform translateX(0px);
-					}
-
-				}
-				.toggle .line1{
-					transform: rotate(-45deg) translate(-5px,6px);
-				}
-				.toggle .line2{
-					opacity: 0;
-				}
-				.toggle .line3{
-					transform: rotate(45deg) translate(-5px,-6px);
-				}
-	</style>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+   
+  <title>Nav Bar</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
-<nav>
-	<div class="logo">
-	<h4><a  href="{{url('/')}}">SKILL Hub</a></h4>
-	</div>
-	@if(!auth::user())
-	<ul class="nav-links">
-		<li><a  href="{{ route('register') }}" class="first">Sign up</a></li>
-		<li><a  href="{{ route('login') }}">Login</a></li>
-		<li><a  href="{{url('add-skill')}}">Applicants</a></li>
-		<li><a href="{{url('request-Job-seekers')}}">Employers</a></li>
-		<!-- <li><a href="#">Service</a></li>
-		<li><a href="#">Contact</a></li> -->
-	</ul>
-	<div class="burger">
-		<div class="line1"></div>
-		<div class="line2"></div>
-		<div class="line3"></div>
-	</div>
-	@else
 
-	<ul class="navbar-nav navbar-right mobileview">
-            <!-- usermenu start MObile view -->
-          @if(auth::check())
-  <div class="dropdown" style="margin-left: 100px;">
-      <span>
-       <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
-    </span>
-     <div class="dropdown-content" style="margin-left: -100px; border-radius: 20px; padding-left: -80px;">
-    
-   
-     @if(auth::user()->role == 'Applicant')
-  <a href="{{url('add-skill')}}"  class="dropdown-item" ><i class="fa fa-plus"></i> Add skill</a> 
+
+   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand"  href="{{url('/')}}" style="font-weight: 3px; font-size: 30px; margin-top: -20px">MySkillsHub</a>
+      <button class="navbar-toggler btn btn-sm" type="button" data-toggle="collapse" style="background-color: #000000;" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="#"></a>
+          </li>
+          @if(!auth::user())
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}"> Register </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}"> Login</a>
+          </li>
           @endif
-       <a href="/my-profile/{{auth::user()->id}}"  class="dropdown-item" ><i class="fa fa-user"></i> My Profile</a> 
-   
-        <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
-       <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                 <i class="fa fa-list-alt"></i> {{ __('Logout') }}</a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('add-skill')}}">  Applicants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('request-Job-seekers')}}">  Employer</a>
+          </li>
+            @if(auth::check())
+             
+            @if(auth::user()->role == 'Applicant')
+          <li class="nav-item">
+            <a class="nav-link"  href="{{url('add-skill')}}">  Add Skill</a>
+          </li>
+           @endif
+             <li class="nav-item">
+            <a class="nav-link" href="/my-profile/{{auth::user()->id}}">  My Profile</a>
+          </li>
+
+            <li class="nav-item">
+            <a class="nav-link" href="{{url('editProfile')}}">  Edit Profile</a>
+          </li>
+
+
+            <li class="nav-item">
+            <a class="nav-link" href="{{url('profilePicture')}}"> Profile Picture</a>
+          </li>
+
+
+           
+          @endif
+        </ul>
+         @if(auth::check())
+             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();" style="margin-left: -10px;  font-size: 20px; color: #fff; font-family: roboto">
+                                   {{ __('Logout') }}</a>
+              <form  action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>
-    </div>
-</div>
-</ul>
-      @endif
-
-
-			<ul class="nav-links">
-		
-		<li><a  href="{{url('add-skill')}}">Applicants</a></li>
-		<li><a href="{{url('request-Job-seekers')}}">Employers</a></li>
-		<!-- <li><a href="#">Service</a></li>
-		<li><a href="#">Contact</a></li> -->
-	</ul>
-	<div class="burger">
-		<div class="line1"></div>
-		<div class="line2"></div>
-		<div class="line3"></div>
-	</div>
-	@endif
-
-
-
-	<div>
-           <ul class="navbar-nav navbar-right desktopView">
-              @guest
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Signup</a>
-            </li> -->
-            @else
-            <!-- usermenu start -->
-            <li class="nav-item">
-              <!-- <span  style="margin-right: 20px; color:#ffffff"> {{ auth::user()->name}} ({{auth::user()->role}})</span> -->
-            </li>
-            <li class="nav-item">
-<div class="dropdown create">
-           <span class="dropdown-toggle" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <img  src="/upload/{{auth::user()->photo == '' ? 'female.png' : auth::user()->photo}}" style="width: 40px; height: 40px; border-radius: 50%; border:1px solid #fff; margin-right: 50px">
-        </span>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         
-          @if(auth::user()->role == 'Applicant')
-  <a href="{{url('add-skill')}}"  class="dropdown-item" ><i class="fa fa-plus"></i> Add skill</a> 
-          @endif
-
-   <a href="/my-profile/{{auth::user()->id}}"  class="dropdown-item" ><i class="fa fa-user"></i> My Profile</a> 
-
-     <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
-         
-         <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
-				 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                 <i class="fa fa-list-alt"></i> {{ __('Logout') }}</a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-		  </div>
-  </div>
-            </li> <!-- usermenu end -->
-            
-          </ul>
-           @endguest 
-        </div>
-
-
-
-</nav>
-
-
-
-        
+    @endif
+      </div>
+    </nav>
 @include('inc.success')
 @include('inc.errors') 
      
  @yield('content')
 
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -477,6 +315,13 @@ $(function() {
 
 }
 navSlide();
+
 </script>
+<!-- <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+
+<script type="text/javascript" src="js/popper.min.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+ -->
 </body>
 </html>

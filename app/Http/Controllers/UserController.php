@@ -86,10 +86,10 @@ public function allApplicants() {
    }
 
 public function closeJob() {
-   $qurey = Employer::where('recruitDeadline','>=',\Carbon\Carbon::now())
-        ->update([
-            'expired'=>'closed'
-        ]);
+   // $qurey = Employer::where('recruitDeadline','>=',\Carbon\Carbon::now())
+   //      ->update([
+   //          'expired'=>'closed'
+   //      ]);
    
     }
 
