@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="{{url('/')}}" class="logo" style="font-weight: 3px; font-size: 30px; margin-top: -20px">MySkillsHub</a>
+      <a class="navbar-brand" href="{{url('/')}}" class="logo" style="font-weight: 3px; font-size: 18px; margin-top: -14px">MySkillsHub</a>
 
       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,10 @@
    
         <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
        <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
+
+
+             <a class="dropdown-item" href="{{url('get-issues-form')}}"><i class="fa fa-bug"></i> Issue ?</a>
+
         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                  <i class="fa fa-list-alt"></i> {{ __('Logout') }}</a>
@@ -58,6 +62,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('register') }}">Signup</a>
             </li>
+              <li class="nav-item">
+             <a class="dropdown-item" href="{{url('get-issues-form')}}"><i class="fa fa-bug"></i> Issue ?</a>
+           </li>
             @else
             <!-- usermenu start -->
             <li class="nav-item">
@@ -79,6 +86,8 @@
      <a class="dropdown-item" href="{{url('editProfile')}}"><i class="fa fa-pencil"></i> Edit Profile</a>
          
          <a class="dropdown-item" href="{{url('profilePicture')}}"><i class="fa fa-list-alt"></i> Profile Picture</a>
+
+          <a class="dropdown-item" href="{{url('get-issues-form')}}"><i class="fa fa-bug"></i> Issue ?</a>
       </div>
   </div>
             </li> <!-- usermenu end -->

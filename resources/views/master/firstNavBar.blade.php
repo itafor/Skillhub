@@ -37,6 +37,7 @@
    
   <title>Nav Bar</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  
 </head>
 <body>
 
@@ -65,6 +66,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{url('request-Job-seekers')}}">  Employer</a>
           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{{url('get-issues-form')}}"><i class="fa fa-bug"></i> Issue ?</a>
+           </li>
             @if(auth::check())
              
             @if(auth::user()->role == 'Applicant')
@@ -86,9 +90,12 @@
           </li>
 
 
-           
+            <li class="nav-item">
+             <a class="dropdown-item" href="{{url('get-issues-form')}}"><i class="fa fa-bug"></i> Issue ?</a>
+           </li>  
           @endif
         </ul>
+
          @if(auth::check())
              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();" style="margin-left: -10px;  font-size: 20px; color: #fff; font-family: roboto">

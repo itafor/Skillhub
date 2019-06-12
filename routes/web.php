@@ -4,6 +4,7 @@
 
 //     return view('menialJobSeekers.frontpage');
 // });
+Route::get('get-issues-form', 'UserController@getIssuesForm');
 
 Route::get('main', function () {
     return view('master.main');
@@ -61,6 +62,9 @@ Route::POST('addskill', 'UserController@addSkill')->name('addskill');
 Route::get('editskill/{id}', 'UserController@editSkill')->name('editskill');
 Route::post('updateskill/{id}', 'UserController@updateSkill')->name('updateskill');
 Route::get('deleteSkill/{id}', 'UserController@deleteSkill')->name('deleteSkill');
+Route::POST('submit-issues', 'UserController@postIssues')->name('addissues');
+Route::get('get-issues', 'UserController@getIssues')->name('getIssues');
+Route::get('deleteIssue/{id}', 'UserController@deleteIssue')->name('deleteIssue');
 
 
 Route::post('profilePicture', 'UserController@profilePicture')->name('profilePicture');

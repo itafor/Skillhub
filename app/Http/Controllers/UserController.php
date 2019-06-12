@@ -17,6 +17,8 @@ use App\Onlineproof;
 use App\Videoproof;
 use App\Jobapplication;
 use App\Sharedjob;
+use App\Issue;
+
 
 //use App\Carbon;
 class UserController extends Controller
@@ -510,4 +512,39 @@ $output.='<li><a href="#">'.$row->name.'</a></li>';
     ;
     }
    }
+
+public function getIssuesForm(){
+  return view('menialJobSeekers.issues');
 }
+   public function postIssues(Request $request){
+    $issue=new Issue();
+    $issue->subject=$request->subject;
+    $issue->phone=$request->phone;
+    $issue->email=$request->email;
+    $issue->issues=$request->issues;
+    $issue->save();
+    if($issue){
+         return  Back()->with('success','Issue submitted successfully, thanks');
+        }
+return back()->with('errors',' An error occured while trying to submit issue. please try again');
+}
+
+public function getIssues(){
+  $getIssue=DB::table('issues')
+   ->orderBy('created_at','desc')
+  ->paginate(5);
+  return view('menialJobSeekers.displayIssue',compact(['getIssue']));
+}
+
+public function deleteIssue($id){
+   $findIssue = Issue::find($id);
+        if($findIssue->delete()){
+         return  Back()->with('success','Issue  deleted successfully');
+        }
+return back()->with('error',' Issue could not be deleted,Try again');
+    
+    }
+
+}
+   
+

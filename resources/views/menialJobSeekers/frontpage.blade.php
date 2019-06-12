@@ -1,8 +1,5 @@
 
-
-
 @extends('master.firstNavBar')
-
 @section('content')
 <div id="showcase">
 <div class="section-main container">

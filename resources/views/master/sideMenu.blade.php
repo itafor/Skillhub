@@ -16,6 +16,7 @@
            <li class="list-group-item"><a href="/emprequest"> Hiring  </a></li>
            <li class="list-group-item">  <a href="/all-employers"> Employers </a></li>
            <li class="list-group-item"> <a href="/all-applicants"> Applicants  </a></li>
+           <li class="list-group-item"> <a href="/get-issues"> Issues  </a></li>
            ' : '' ?>
          
           <!--   Employers  menus -->
